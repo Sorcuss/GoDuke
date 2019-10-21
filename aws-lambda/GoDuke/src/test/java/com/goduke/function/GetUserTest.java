@@ -32,7 +32,7 @@ public class GetUserTest {
 
     @Test
     public void testGetUser() {
-        GetUser handler = new GetUser();
+        Candidate handler = new Candidate();
         Context ctx = createContext();
 
         String output = handler.handleRequest(input, ctx);

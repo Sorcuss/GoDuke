@@ -3,7 +3,7 @@ package com.goduke.function;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
-public class GetUser implements RequestHandler<Object, String> {
+public class Candidate implements RequestHandler<Object, String> {
 
     @Override
     public String handleRequest(Object input, Context context) {
