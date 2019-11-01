@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="67d46200-dd66-46a9-9e7c-752cb77e3446" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.settings/com.amazonaws.eclipse.serverless.project.json" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/com.amazonaws.eclipse.serverless.project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/Candidate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/HelloWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/Recruiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Recruiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/goduke/function/GetUserTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../website/css/add.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../website/css/add.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../website/html/login-kandydant.htm" beforeDir="false" afterPath="$PROJECT_DIR$/../../website/html/login-kandydant.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../website/html/user-pane.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../website/js/user-pane.js" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1SlBtTwQm0i8r1S6ghECds1M1uo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="aws" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="67d46200-dd66-46a9-9e7c-752cb77e3446" name="Default Changelist" comment="" />
+      <created>1571661977419</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571661977419</updated>
+      <workItem from="1571661981327" duration="46000" />
+      <workItem from="1571662043503" duration="81000" />
+      <workItem from="1572123651859" duration="17000" />
+      <workItem from="1572128521754" duration="7000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8.0_211</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
