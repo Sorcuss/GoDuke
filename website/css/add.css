@@ -1,3 +1,7 @@
+#username {
+    font-size: 2em;
+}
+
 .add-center {
     position: absolute;
     left: 50%;
@@ -6,5 +10,5 @@
 }
 
 .add-hellouser {
-    margin: 3%;
+    margin: 100%;
 }

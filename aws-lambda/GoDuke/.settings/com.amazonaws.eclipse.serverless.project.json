@@ -1,1 +1,1 @@
-{"packagePrefix":"com.goduke","lastDeploymentRegionId":null,"regionConfig":null}
+{"packagePrefix":"com.goduke","lastDeploymentRegionId":"us-west-2","regionConfig":{"us-west-2":{"bucket":"lambda-function-bucket-us-west-2-1571663331123","stack":"GoDuke-stack"}}}
