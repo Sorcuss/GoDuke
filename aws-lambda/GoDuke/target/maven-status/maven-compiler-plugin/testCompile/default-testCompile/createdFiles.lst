@@ -1,0 +1,13 @@
+com/goduke/function/TestContext.class
+com/goduke/function/TestUtils$DynamodbEventMixin.class
+com/goduke/function/TestUtils$DateTimeDeserializer.class
+com/goduke/function/TestUtils$DynamodbEventMixin$StreamRecordMixin.class
+com/goduke/function/TestContext$1.class
+com/goduke/function/TestUtils.class
+com/goduke/function/TestUtils$UpperCaseRecordsPropertyNamingStrategy.class
+com/goduke/function/TestUtils$DynamodbEventMixin$RecordMixin.class
+com/goduke/function/TestContext$TestLogger.class
+com/goduke/function/TestUtils$1.class
+com/goduke/function/TestUtils$TestJacksonMapperModule.class
+com/goduke/function/TestUtils$DynamodbEventMixin$AttributeValueMixIn.class
+com/goduke/function/TestUtils$DateTimeSerializer.class
