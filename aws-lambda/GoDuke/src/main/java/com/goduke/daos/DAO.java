@@ -7,4 +7,5 @@ public interface DAO<T> {
 	public void saveItem(T item);
 	public void deleteItem(String id);
 	public List<T> getAllItems();
+	public void updateItem(T item);
 }

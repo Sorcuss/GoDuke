@@ -26,7 +26,7 @@ public class RecruitmentTestDAO implements DAO<RecruitmentTest>{
 
 	@Override
 	public void saveItem(RecruitmentTest item) {
-		if(item.getId() == null) {
+		if(item.getId() == null || item.getId().isEmpty()) {
 			item.setId(UUID.randomUUID().toString());
 		}
 		
@@ -46,6 +46,12 @@ public class RecruitmentTestDAO implements DAO<RecruitmentTest>{
 	@Override
 	public List<RecruitmentTest> getAllItems() {
 		return this.mapper.scan(RecruitmentTest.class, new DynamoDBScanExpression());
+	}
+
+	@Override
+	public void updateItem(RecruitmentTest item) {
+		this.deleteItem(item.getId());
+		this.saveItem(item);
 	}
 
 }
