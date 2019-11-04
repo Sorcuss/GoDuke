@@ -12,11 +12,11 @@ public class AddQuestion implements RequestHandler<Question, String> {
     @Override
     public String handleRequest(Question question, Context context) {
         AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
-        // Build a mapper
         DynamoDBMapper mapper = new DynamoDBMapper(client);
-        // TODO: implement your handler
-        mapper.save(question);
-        
+        if(mapper.load(Question.class, question.getNumber()) != null) {
+        	return "Error!";
+        }
+        mapper.save(question);        
         return "Success!";
     }
 

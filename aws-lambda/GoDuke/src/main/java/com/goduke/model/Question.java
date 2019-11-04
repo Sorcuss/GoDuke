@@ -1,6 +1,5 @@
 package com.goduke.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
@@ -29,11 +28,11 @@ public class Question {
     	this.options = request.getOptions();
     }
     
-    @DynamoDBHashKey(attributeName="Number")
+    @DynamoDBHashKey(attributeName="number")
     public Integer getNumber() { return number; }
     public void setNumber(Integer number) {this.number = number; }
 
-    @DynamoDBAttribute(attributeName="Type")
+    @DynamoDBAttribute(attributeName="type")
     public String getType() {return type; }
     public void setType(String type) { this.type = type; }
 
