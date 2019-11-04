@@ -1,4 +1,4 @@
-package com.goduke.functions;
+package com.goduke.function;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
@@ -16,10 +16,8 @@ public class AddNewCandidateHandler implements RequestHandler<Candidate, String>
         // Build a mapper
         DynamoDBMapper mapper = new DynamoDBMapper(client);
 
-        Candidate candidate = new Candidate(candidateRequest);
-
         //save candidate
-        mapper.save(candidate);
+        mapper.save(candidateRequest);
 
         return "Success!";
     }
