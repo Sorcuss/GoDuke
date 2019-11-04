@@ -1,3 +1,5 @@
-com/goduke/model/Candidate.class
-com/goduke/model/Recruiter.class
 com/goduke/function/RecruiterLambda.class
+com/goduke/model/Candidate.class
+com/goduke/model/Question.class
+com/goduke/model/Recruiter.class
+com/goduke/function/Candidate.class
