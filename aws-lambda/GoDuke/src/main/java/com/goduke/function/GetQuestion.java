@@ -26,7 +26,10 @@ public class GetQuestion implements RequestHandler<APIGatewayProxyRequestEvent, 
 			 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 		     DynamoDBMapper mapper = new DynamoDBMapper(client);
 		     Question quest = mapper.load(Question.class, Integer.parseInt(params.get("id")));
-			 return new APIGatewayProxyResponseEvent().withStatusCode(200).withBody(quest.toString());
+		     if(quest == null) {
+			 return new APIGatewayProxyResponseEvent().withStatusCode(400).withBody(null);
+		     }
+		     return new APIGatewayProxyResponseEvent().withStatusCode(200).withBody(quest.toString());
 		 }
 	 }
 
