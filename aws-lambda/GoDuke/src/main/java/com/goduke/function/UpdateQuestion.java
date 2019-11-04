@@ -29,5 +29,4 @@ public class UpdateQuestion implements RequestHandler<APIGatewayProxyRequestEven
 		mapper.save(updatedQuestion);
 		return new APIGatewayProxyResponseEvent().withBody("Success!");
 	}
-
 }

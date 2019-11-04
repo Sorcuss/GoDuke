@@ -19,13 +19,16 @@ public class DeleteQuestion implements RequestHandler<APIGatewayProxyRequestEven
 		if (pathParams.get("id") == null || pathParams.get("id").isEmpty()) {
 			return new APIGatewayProxyResponseEvent().withBody("Error!");
 		}
-
 		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 		DynamoDBMapper mapper = new DynamoDBMapper(client);
 		Question question = mapper.load(Question.class, Integer.parseInt(pathParams.get("id")));
 		if (question == null) {
 			return new APIGatewayProxyResponseEvent().withBody("Error!");
 		}
+		 return deleteItem(question, mapper);
+	}
+
+	private APIGatewayProxyResponseEvent deleteItem(Question question, DynamoDBMapper mapper) {
 		mapper.delete(question);
 		Question deletedQuestion = mapper.load(Question.class, question.getNumber());
 		if (deletedQuestion == null) {
@@ -33,5 +36,4 @@ public class DeleteQuestion implements RequestHandler<APIGatewayProxyRequestEven
 		}
 		return new APIGatewayProxyResponseEvent().withBody("Error!");
 	}
-
 }
