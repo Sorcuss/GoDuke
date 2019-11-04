@@ -2,22 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ec6cb98-0de4-4730-b9fc-90648a563bca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/daos/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/daos/RecruitmentTestDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/RecruitmentTestRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/RecruitmentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/goduke/function/TestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/goduke/function/TestContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/goduke/function/HelloWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/goduke/function/HelloWorld.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/AddNewCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/AddNewCandidateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/UpdateCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/UpdateCandidateHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/goduke-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/goduke-1.0.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/original-goduke-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-goduke-1.0.0.jar" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,6 +41,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/goduke" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -141,7 +134,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572617601928</updated>
       <workItem from="1572617603372" duration="2401000" />
-      <workItem from="1572860299143" duration="739000" />
+      <workItem from="1572860299143" duration="1564000" />
     </task>
     <servers />
   </component>
