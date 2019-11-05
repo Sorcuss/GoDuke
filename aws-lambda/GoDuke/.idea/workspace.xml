@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ec6cb98-0de4-4730-b9fc-90648a563bca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/AddQuestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/DeleteQuestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/GetQuestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/UpdateQuestion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/DeleteCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/DeleteCandidateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/GetCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/GetCandidateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Question.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,6 +137,7 @@
       <workItem from="1572617603372" duration="2401000" />
       <workItem from="1572860299143" duration="1687000" />
       <workItem from="1572953059185" duration="10000" />
+      <workItem from="1572986984935" duration="946000" />
     </task>
     <servers />
   </component>
