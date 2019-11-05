@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86ff9118-b965-4a4e-a7c7-1e8d6e19eb68" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/aws-lambda/GoDuke/src/main/java/com/goduke/function/Candidate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/html/recruiter-pane.html" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aws-lambda/GoDuke/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aws-lambda/GoDuke/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aws-lambda/GoDuke/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aws-lambda/GoDuke/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aws-lambda/GoDuke/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aws-lambda/GoDuke/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aws-lambda/GoDuke/src/main/java/com/goduke/function/RecruitmentTestRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/aws-lambda/GoDuke/src/main/java/com/goduke/function/RecruitmentTestRequestHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -21,8 +28,12 @@
       </set>
     </option>
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectId" id="1T15KCtOj5BeWBnRoLNReUEnv71" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -48,7 +59,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="AWS Lambda.[Remote] GetRecruiterById">
+  <component name="RunManager">
     <configuration name="[Remote] GetRecruiterById" type="aws.lambda" factoryName="Remote" temporary="true" nameIsGenerated="true">
       <option name="credentialProviderId" value="profile:default" />
       <option name="regionId" value="us-east-1" />
@@ -65,12 +76,6 @@
       <option name="inputIsFile" value="false" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="AWS Lambda.[Remote] GetRecruiterById" />
-        <item itemvalue="AWS Lambda.[Remote] qassdasdas" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -83,6 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572614694841</updated>
       <workItem from="1572614697848" duration="1250000" />
+      <workItem from="1572985293483" duration="56000" />
     </task>
     <servers />
   </component>
@@ -94,7 +100,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
