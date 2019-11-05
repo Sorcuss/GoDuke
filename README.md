@@ -2,47 +2,46 @@
 
 Contract:
 
-recruiter:
-{
-    id: integer
-    username: string
-    firstname: string
-    lastname:string
-    password: string
-    email: string
+recruiter: <br>
+{<br>
+    id: integer<br>
+    username: string<br>
+    firstname: string<br>
+    lastname:string<br>
+    password: string<br>
+    email: string<br>
 }
-candidate:
-{
-    id: integer
-    firstname: string
-    lastname:string
-    email: string
-    password: string
+candidate:<br>
+{<br>
+    id: integer<br>
+    firstname: string<br>
+    lastname:string<br>
+    email: string<br>
+    password: string<br>
+}<br>
+test:<br>
+{<br>
+    id: integer<br>
+    languages: list of strings<br>
+    name: string<br>
+    questions: list of questions<br>
+    creator: recruiter id<br>
+    candidates: candidates ids<br>
 }
-test:
-{
-    id: integer
-    languages: list of strings
-    name: string
-    questions: list of questions
-    creator: recruiter id
-    candidates: candidates ids
-}
-question:
-{
-    number: integer
-    type: string
-    language: string 
-    question: string
-    options: list of strings
-    
-}
+question:<br>
+{<br>
+    number: integer<br>
+    type: string<br>
+    language: string <br>
+    question: string<br>
+    options: list of strings<br>
+}<br>
 
 
-answers:
-{
-    id: int
-    testId: int
-    candidateId: int
-    Map<questionId<--String, String>: answers
-}
+answers:<br>
+{<br>
+    id: int<br>
+    testId: int<br>
+    candidateId: int<br>
+    Map<questionId<--String, String>: answers<br>
+}<br>
