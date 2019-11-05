@@ -19,6 +19,7 @@
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
+          <encoding>UTF-8</encoding>
           <forceJavacCompilerUse>true</forceJavacCompilerUse>
         </configuration>
       </plugin>
@@ -78,10 +79,10 @@
     <artifactId>json-simple</artifactId>
     <version>1.1.1</version>
 </dependency>
-<dependency>
-  <groupId>com.amazonaws</groupId>
-  <artifactId>aws-java-sdk-dynamodb</artifactId>
-  </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-dynamodb</artifactId>
+    </dependency>
 
   </dependencies>
 </project>
