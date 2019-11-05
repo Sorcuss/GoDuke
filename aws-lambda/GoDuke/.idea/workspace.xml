@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ec6cb98-0de4-4730-b9fc-90648a563bca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/AddNewCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/AddNewCandidateHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/UpdateCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/UpdateCandidateHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/goduke-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/goduke-1.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-goduke-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-goduke-1.0.0.jar" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +126,8 @@
       <option name="presentableId" value="Default" />
       <updated>1572617601928</updated>
       <workItem from="1572617603372" duration="2401000" />
-      <workItem from="1572860299143" duration="1564000" />
+      <workItem from="1572860299143" duration="1687000" />
+      <workItem from="1572953059185" duration="10000" />
     </task>
     <servers />
   </component>
