@@ -1,4 +1,4 @@
-package com.goduke.function;
+package com.goduke.function.question;
 
 import java.util.Map;
 
@@ -10,23 +10,30 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.goduke.model.Question;
-import com.google.gson.Gson;
 
-public class GetQuestion implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+public class DeleteQuestion implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
 	@Override
 	public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent request, Context context) {
 		Map<String, String> pathParams = request.getPathParameters();
 		if (pathParams.get("id") == null || pathParams.get("id").isEmpty()) {
-			return new APIGatewayProxyResponseEvent().withBody(null);
+			return new APIGatewayProxyResponseEvent().withBody("Error!");
 		}
 		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 		DynamoDBMapper mapper = new DynamoDBMapper(client);
 		Question question = mapper.load(Question.class, Integer.parseInt(pathParams.get("id")));
 		if (question == null) {
-			return new APIGatewayProxyResponseEvent().withBody(null);
+			return new APIGatewayProxyResponseEvent().withBody("Error!");
 		}
-		return new APIGatewayProxyResponseEvent().withBody(question.toString());
+		 return deleteItem(question, mapper);
 	}
 
+	private APIGatewayProxyResponseEvent deleteItem(Question question, DynamoDBMapper mapper) {
+		mapper.delete(question);
+		Question deletedQuestion = mapper.load(Question.class, question.getNumber());
+		if (deletedQuestion == null) {
+			return new APIGatewayProxyResponseEvent().withBody("Succes!");
+		}
+		return new APIGatewayProxyResponseEvent().withBody("Error!");
+	}
 }

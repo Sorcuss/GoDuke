@@ -1,4 +1,4 @@
-package com.goduke.function;
+package com.goduke.function.candidate;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;

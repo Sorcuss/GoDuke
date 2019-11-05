@@ -2,16 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ec6cb98-0de4-4730-b9fc-90648a563bca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/AddQuestion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/DeleteQuestion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/GetQuestion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/UpdateQuestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Answer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/DeleteCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/DeleteCandidateHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/GetCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/GetCandidateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/daos/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/test/daos/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/daos/RecruitmentTestDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/test/daos/RecruitmentTestDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/AddNewCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/candidate/AddNewCandidateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/AddQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/question/AddQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/Candidate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/DeleteCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/candidate/DeleteCandidateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/DeleteQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/question/DeleteQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/GetCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/candidate/GetCandidateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/GetQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/question/GetQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/RecruiterLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/recruiter/RecruiterLambda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/RecruitmentTestRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/test/RecruitmentTestRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/UpdateCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/candidate/UpdateCandidateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/UpdateQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/question/UpdateQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/Candidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Candidate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/Recruiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Recruiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/RecruitmentTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Test.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +108,7 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
-    <configuration name="goduke [clean,package]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+    <configuration name="goduke [package]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -108,7 +119,6 @@
             </option>
             <option name="goals">
               <list>
-                <option value="clean" />
                 <option value="package" />
               </list>
             </option>
@@ -137,7 +147,8 @@
       <workItem from="1572617603372" duration="2401000" />
       <workItem from="1572860299143" duration="1687000" />
       <workItem from="1572953059185" duration="10000" />
-      <workItem from="1572986984935" duration="946000" />
+      <workItem from="1572986984935" duration="1117000" />
+      <workItem from="1572992843889" duration="2490000" />
     </task>
     <servers />
   </component>

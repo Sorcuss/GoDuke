@@ -12,11 +12,11 @@ public class Recruiter implements Serializable {
 
 	private static final long serialVersionUID = 9024922645981936041L;
 
-	String id;
-	String firstname;
-	String lastname;
-	String password;
-	String email;
+	private String id;
+	private String firstname;
+	private String lastname;
+	private String password;
+	private String email;
 
 	public Recruiter() {}
 	public Recruiter(Recruiter recruiter) {

@@ -1,10 +1,10 @@
-package com.goduke.function;
+package com.goduke.function.test;
 
 import java.util.Map;
 import java.util.List;
 import com.amazonaws.services.lambda.runtime.Context;
-import com.goduke.daos.RecruitmentTestDAO;
-import com.goduke.model.RecruitmentTest;
+import com.goduke.function.test.daos.RecruitmentTestDAO;
+import com.goduke.model.Test;
 import com.google.gson.Gson;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
@@ -18,7 +18,7 @@ public class RecruitmentTestRequestHandler{
 			 return new APIGatewayProxyResponseEvent().withStatusCode(400).withBody("error");
 		 }
 		 else {
-			 	RecruitmentTest testToCreate = new RecruitmentTest(request.getBody());
+			 	Test testToCreate = new Test(request.getBody());
 			 	recruitmentTestDAO.saveItem(testToCreate);
 		        return new APIGatewayProxyResponseEvent().withStatusCode(200).withBody("success");
 		  }
@@ -31,13 +31,13 @@ public class RecruitmentTestRequestHandler{
 		 }
 		 
 		 else {
-			 RecruitmentTest test = recruitmentTestDAO.getItem(parameters.get("id"));
+			 Test test = recruitmentTestDAO.getItem(parameters.get("id"));
 			 return new APIGatewayProxyResponseEvent().withStatusCode(200).withBody(test.toJson());
 		 }
 	 }
 	 
 	 public APIGatewayProxyResponseEvent handleGetAllRecruitmentTest(APIGatewayProxyRequestEvent request, Context context) {
-		List<RecruitmentTest> allTests = this.recruitmentTestDAO.getAllItems();
+		List<Test> allTests = this.recruitmentTestDAO.getAllItems();
 		Gson gson = new Gson();
 		return new APIGatewayProxyResponseEvent().withStatusCode(200).withBody(gson.toJson(allTests));
 	 }
@@ -59,7 +59,7 @@ public class RecruitmentTestRequestHandler{
 			 return new APIGatewayProxyResponseEvent().withStatusCode(400).withBody("error");
 		 }
 		 else {
-			 	RecruitmentTest testToUpdate = new RecruitmentTest(request.getBody());
+			 	Test testToUpdate = new Test(request.getBody());
 			 	recruitmentTestDAO.updateItem(testToUpdate);
 		        return new APIGatewayProxyResponseEvent().withStatusCode(200).withBody("success");
 		  }

@@ -1,4 +1,4 @@
-package com.goduke.daos;
+package com.goduke.function.test.daos;
 
 import java.util.List;
 

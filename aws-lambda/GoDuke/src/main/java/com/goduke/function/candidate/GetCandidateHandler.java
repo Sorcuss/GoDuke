@@ -1,4 +1,4 @@
-package com.goduke.function;
+package com.goduke.function.candidate;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
@@ -7,9 +7,9 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.model.Candidate;
 
-public class DeleteCandidateHandler  implements RequestHandler<Candidate, String>{
+public class GetCandidateHandler implements RequestHandler<Candidate, Candidate> {
     @Override
-    public String handleRequest(Candidate candidateRequest, Context context) {
+    public Candidate handleRequest(Candidate candidateRequest, Context context) {
         // Create a connection to DynamoDB
         AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 
@@ -19,17 +19,11 @@ public class DeleteCandidateHandler  implements RequestHandler<Candidate, String
         // Load the candidate by ID
         Candidate candidate = mapper.load(Candidate.class, candidateRequest.getId());
         if(candidate == null) {
-            context.getLogger().log("Error!");
-            return "Error!";
+            context.getLogger().log("Error! No Candidate found with ID: " + candidateRequest.getId() + "\n");
+            return null;
         }
-
-        mapper.delete(candidate);
-        Candidate deletedCandidate = mapper.load(Candidate.class, candidateRequest.getId());
-        if (deletedCandidate == null) {
-            context.getLogger().log("Success!");
-            return "Success!";
-        }
-
-        return "Error!";
+        context.getLogger().log("Success!");
+        // Return  candidate
+        return candidate;
     }
 }
