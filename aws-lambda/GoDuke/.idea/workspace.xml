@@ -1,72 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ec6cb98-0de4-4730-b9fc-90648a563bca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Answer.java" afterDir="false" />
+    <list default="true" id="9c8a6b44-c285-4936-b4ea-b4cfc46207e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/exceptions/DataDuplicatedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/test/services/RecruitmentTestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/daos/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/test/daos/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/daos/RecruitmentTestDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/test/daos/RecruitmentTestDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/AddNewCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/candidate/AddNewCandidateHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/AddQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/question/AddQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/Candidate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/DeleteCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/candidate/DeleteCandidateHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/DeleteQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/question/DeleteQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/GetCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/candidate/GetCandidateHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/GetQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/question/GetQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/RecruiterLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/recruiter/RecruiterLambda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/RecruitmentTestRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/test/RecruitmentTestRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/UpdateCandidateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/candidate/UpdateCandidateHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/UpdateQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/question/UpdateQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/Candidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Candidate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/Recruiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Recruiter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/RecruitmentTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/model/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/model/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goduke/function/test/RecruitmentTestRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goduke/function/test/RecruitmentTestRequestHandler.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="ProjectId" id="1T1BDTCd3NPXAdUMt9A1hKMfje6" />
+  <component name="ProjectId" id="1TFLJ5j0zPOkF9mjwCpPjOoszVM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/goduke" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -81,33 +48,6 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="mvn" />
-                <option value="clean" />
-                <option value="package" />
-              </list>
-            </option>
-            <option name="pomFileName" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
-    </configuration>
     <configuration name="goduke [package]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -138,34 +78,6 @@
     <configuration />
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="2ec6cb98-0de4-4730-b9fc-90648a563bca" name="Default Changelist" comment="" />
-      <created>1572617601928</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1572617601928</updated>
-      <workItem from="1572617603372" duration="2401000" />
-      <workItem from="1572860299143" duration="1687000" />
-      <workItem from="1572953059185" duration="10000" />
-      <workItem from="1572986984935" duration="1117000" />
-      <workItem from="1572992843889" duration="2490000" />
-    </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
