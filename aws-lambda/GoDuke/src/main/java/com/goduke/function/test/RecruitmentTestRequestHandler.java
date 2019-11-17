@@ -1,15 +1,16 @@
 package com.goduke.function.test;
 
-import java.util.Map;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
+import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import com.goduke.function.test.services.RecruitmentTestService;
+import com.goduke.model.Test;
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import com.amazonaws.services.lambda.runtime.Context;
-import com.goduke.model.Test;
-import com.goduke.function.test.services.RecruitmentTestService;
-import com.google.gson.Gson;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import java.util.Map;
 
 	public class RecruitmentTestRequestHandler{
 		private RecruitmentTestService testService = new RecruitmentTestService();
