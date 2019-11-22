@@ -5,35 +5,26 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.goduke.model.Question;
 
-import java.util.Map;
-
-public class DeleteQuestion implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+public class DeleteQuestion implements RequestHandler<Question, String> {
 
 	@Override
-	public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent request, Context context) {
-		Map<String, String> pathParams = request.getPathParameters();
-		if (pathParams.get("id") == null || pathParams.get("id").isEmpty()) {
-			return new APIGatewayProxyResponseEvent().withBody("Error!");
-		}
+	public String handleRequest(Question question, Context context) {
+		// Create a connection to DynamoDB
 		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
-		DynamoDBMapper mapper = new DynamoDBMapper(client);
-		Question question = mapper.load(Question.class, Integer.parseInt(pathParams.get("id")));
-		if (question == null) {
-			return new APIGatewayProxyResponseEvent().withBody("Error!");
-		}
-		 return deleteItem(question, mapper);
-	}
 
-	private APIGatewayProxyResponseEvent deleteItem(Question question, DynamoDBMapper mapper) {
-		mapper.delete(question);
-		Question deletedQuestion = mapper.load(Question.class, question.getId());
-		if (deletedQuestion == null) {
-			return new APIGatewayProxyResponseEvent().withBody("Succes!");
+		// Build a mapper
+		DynamoDBMapper mapper = new DynamoDBMapper(client);
+
+		// Load the candidate by ID
+		Question questionToDelete = mapper.load(Question.class, question.getId());
+		if(questionToDelete == null) {
+			return "Error!";
 		}
-		return new APIGatewayProxyResponseEvent().withBody("Error!");
+		mapper.delete(questionToDelete);
+
+		return "Success!";
+
 	}
 }
