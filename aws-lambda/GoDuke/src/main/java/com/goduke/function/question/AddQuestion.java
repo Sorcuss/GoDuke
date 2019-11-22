@@ -19,5 +19,4 @@ public class AddQuestion implements RequestHandler<Question, String> {
         mapper.save(question);        
         return "Success!";
     }
-
 }
