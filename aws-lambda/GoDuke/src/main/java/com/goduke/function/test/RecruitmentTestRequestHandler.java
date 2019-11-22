@@ -21,7 +21,7 @@ import java.util.Map;
 			}
 			else {
 				Test testToCreate = new Test(request.getBody());
-				testService.addRecrutmentTest(testToCreate);
+				testService.addRecruitmentTest(testToCreate);
 				return new APIGatewayProxyResponseEvent().withStatusCode(200).withBody("success");
 			}
 		}
@@ -39,7 +39,7 @@ import java.util.Map;
 		}
 
 		public APIGatewayProxyResponseEvent handleGetAllRecruitmentTest(APIGatewayProxyRequestEvent request, Context context) {
-			List<Test> allTests = this.testService.getAllRecruitmentsTests();
+			List<Test> allTests = this.testService.getAllRecruitmentTests();
 			Gson gson = new Gson();
 			return new APIGatewayProxyResponseEvent().withStatusCode(200).withBody(gson.toJson(allTests));
 		}

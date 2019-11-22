@@ -25,7 +25,7 @@ public class RecruitmentTestService {
 		return listToModify;
 	}
 	
-	public void addRecrutmentTest(Test test) {
+	public void addRecruitmentTest(Test test) {
 		this.recruitmentTestDAO.saveItem(test);
 	}
 	
@@ -41,7 +41,7 @@ public class RecruitmentTestService {
 		this.recruitmentTestDAO.updateItem(test);
 	}
 	
-	public List<Test> getAllRecruitmentsTests() {
+	public List<Test> getAllRecruitmentTests() {
 		return this.recruitmentTestDAO.getAllItems();
 	}
 	
@@ -77,7 +77,7 @@ public class RecruitmentTestService {
 		this.recruitmentTestDAO.updateItem(test);
 		return removeFlag;
 	}
-	
+
 	public void addCandidatesToTest(String testId, List<String> candidatesIdsToAdd) throws DataDuplicatedException, Exception {
 		Test test = this.recruitmentTestDAO.getItem(testId);
 		if(test != null) {
@@ -91,7 +91,6 @@ public class RecruitmentTestService {
 		else {
 			throw new Exception("test dont exist");
 		}
-		
 	}
 	
 	public boolean deleteCandidateFromTest(String testId, String candidate) throws Exception {

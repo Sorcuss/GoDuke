@@ -16,7 +16,8 @@ public class Test implements Serializable {
 	private String id;
 	private List<String> languages;
 	private String name;
-	private List<Question> questions;
+	private String description;
+	private List<Integer> questionsIds;
 	private String recruiterId;
 	private List<String> candidatesIds;
 	
@@ -30,7 +31,7 @@ public class Test implements Serializable {
 		this.id = request.getId();
 		this.languages = request.getLanguages();
 		this.name = request.getName();
-		this.questions = request.getQuestions();
+		this.questionsIds = request.getQuestionsIds();
 		this.recruiterId = request.getRecruiterId();
 		this.candidatesIds = request.getCandidatesIds();
 	}
@@ -63,15 +64,6 @@ public class Test implements Serializable {
 		this.name = name;
 	}
 
-	@DynamoDBAttribute(attributeName = "questions")
-	public List<Question> getQuestions() {
-		return questions;
-	}
-
-	public void setQuestions(List<Question> questions) {
-		this.questions = questions;
-	}
-
 	@DynamoDBAttribute(attributeName = "recruiter_id")
 	public String getRecruiterId() {
 		return recruiterId;
@@ -93,5 +85,24 @@ public class Test implements Serializable {
 	public String toJson() {
 		Gson gson = new Gson();
 		return gson.toJson(this);
+	}
+
+
+	@DynamoDBAttribute(attributeName = "description")
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@DynamoDBAttribute(attributeName = "questions")
+	public List<Integer> getQuestionsIds() {
+		return questionsIds;
+	}
+
+	public void setQuestionsIds(List<Integer> questionsIds) {
+		this.questionsIds = questionsIds;
 	}
 }

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86ff9118-b965-4a4e-a7c7-1e8d6e19eb68" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/goduke-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/goduke-project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aws-lambda/GoDuke/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aws-lambda/GoDuke/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aws-lambda/GoDuke/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aws-lambda/GoDuke/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aws-lambda/GoDuke/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aws-lambda/GoDuke/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aws-lambda/GoDuke/src/main/java/com/goduke/function/RecruitmentTestRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/aws-lambda/GoDuke/src/main/java/com/goduke/function/RecruitmentTestRequestHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +41,9 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
@@ -59,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="AWS Lambda.[Remote] GetRecruiterById">
     <configuration name="[Remote] GetRecruiterById" type="aws.lambda" factoryName="Remote" temporary="true" nameIsGenerated="true">
       <option name="credentialProviderId" value="profile:default" />
       <option name="regionId" value="us-east-1" />
@@ -89,6 +88,9 @@
       <updated>1572614694841</updated>
       <workItem from="1572614697848" duration="1250000" />
       <workItem from="1572985293483" duration="56000" />
+      <workItem from="1574436093504" duration="77000" />
+      <workItem from="1574436191374" duration="51000" />
+      <workItem from="1574436268416" duration="8000" />
     </task>
     <servers />
   </component>
