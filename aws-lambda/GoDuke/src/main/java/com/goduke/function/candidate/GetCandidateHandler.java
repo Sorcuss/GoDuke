@@ -12,7 +12,6 @@ public class GetCandidateHandler implements RequestHandler<Candidate, Candidate>
     public Candidate handleRequest(Candidate candidateRequest, Context context) {
         // Create a connection to DynamoDB
         AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
-
         // Build a mapper
         DynamoDBMapper mapper = new DynamoDBMapper(client);
 
