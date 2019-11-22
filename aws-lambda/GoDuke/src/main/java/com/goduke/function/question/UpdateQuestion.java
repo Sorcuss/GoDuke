@@ -11,22 +11,15 @@ import com.goduke.model.Question;
 
 import java.util.Map;
 
-public class UpdateQuestion implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+public class UpdateQuestion implements RequestHandler<Question, String> {
 
 	@Override
-	public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent request, Context context) {
-		Map<String, String> pathParams = request.getPathParameters();
-		if(request.getBody() == null || request.getBody().isEmpty() || pathParams.get("id") == null || pathParams.get("id").isEmpty()) {
-			 return new APIGatewayProxyResponseEvent().withBody("Error!");
-		}
+	public String handleRequest(Question questionRequest, Context context) {
 		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 		DynamoDBMapper mapper = new DynamoDBMapper(client);
-		Question question = mapper.load(Question.class, Integer.parseInt(pathParams.get("id")));
-		Question updatedQuestion = new Question(request.getBody());
-		if(question == null || !question.getId().equals(updatedQuestion.getId())) {
-			 return new APIGatewayProxyResponseEvent().withBody("Error!");
-	    }
-		mapper.save(updatedQuestion);
-		return new APIGatewayProxyResponseEvent().withBody("Success!");
+
+
+		mapper.save(questionRequest);
+		return "Success";
 	}
 }
