@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class CheckUnique  {
-    public static boolean checkRecruiterEmail(DynamoDBMapper dbMapper, String email) {
+    public static boolean checkRecruiterUnique(DynamoDBMapper dbMapper, String email) {
         if(email == "" || email == null){
             return false;
         }

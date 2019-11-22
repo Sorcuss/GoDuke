@@ -11,7 +11,7 @@ public class AddRecruiterHandler implements RequestHandler<Recruiter, String> {
     DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
     @Override
     public String handleRequest(Recruiter recruiter, Context context) {
-        if(CheckUnique.checkRecruiterEmail(dynamoDBMapper, recruiter.getEmail()) == false){
+        if(CheckUnique.checkRecruiterUnique(dynamoDBMapper, recruiter.getEmail()) == false){
             throw new RuntimeException("Error!: wrong email.");
         }
         Recruiter recruiterToAdd = new Recruiter(recruiter);

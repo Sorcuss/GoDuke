@@ -8,16 +8,13 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.model.Candidate;
 
 public class AddNewCandidateHandler implements RequestHandler<Candidate, String> {
+    DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
     @Override
     public String handleRequest(Candidate candidateRequest, Context context) {
-        // Create a connection to DynamoDB
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 
-        // Build a mapper
-        DynamoDBMapper mapper = new DynamoDBMapper(client);
 
         //save candidate
-        mapper.save(candidateRequest);
+        dynamoDBMapper.save(candidateRequest);
 
         return "Success!";
     }
