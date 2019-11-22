@@ -17,7 +17,7 @@ public class Test implements Serializable {
 	private List<String> languages;
 	private String name;
 	private String description;
-	private List<Integer> questionsIds;
+	private List<String> questionsIds;
 	private String recruiterId;
 	private List<String> candidatesIds;
 	
@@ -31,6 +31,7 @@ public class Test implements Serializable {
 		this.id = request.getId();
 		this.languages = request.getLanguages();
 		this.name = request.getName();
+		this.description = request.getDescription();
 		this.questionsIds = request.getQuestionsIds();
 		this.recruiterId = request.getRecruiterId();
 		this.candidatesIds = request.getCandidatesIds();
@@ -98,11 +99,11 @@ public class Test implements Serializable {
 	}
 
 	@DynamoDBAttribute(attributeName = "questions")
-	public List<Integer> getQuestionsIds() {
+	public List<String> getQuestionsIds() {
 		return questionsIds;
 	}
 
-	public void setQuestionsIds(List<Integer> questionsIds) {
+	public void setQuestionsIds(List<String> questionsIds) {
 		this.questionsIds = questionsIds;
 	}
 }

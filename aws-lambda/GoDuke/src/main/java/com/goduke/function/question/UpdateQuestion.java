@@ -17,8 +17,6 @@ public class UpdateQuestion implements RequestHandler<Question, String> {
 	public String handleRequest(Question questionRequest, Context context) {
 		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 		DynamoDBMapper mapper = new DynamoDBMapper(client);
-
-
 		mapper.save(questionRequest);
 		return "Success";
 	}
