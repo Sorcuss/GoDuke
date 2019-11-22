@@ -16,15 +16,17 @@ public class Candidate implements Serializable {
 	private String id;
 	private String firstname;
 	private String lastname;
+	private String password;
 	private String email;
 	
 	public Candidate() {}
 	
-	public Candidate(String id, String firstname, String lastname, String email) {
+	public Candidate(String id, String firstname, String lastname, String password, String email) {
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
+		this.password = password;
 	}
 
 	@DynamoDBHashKey(attributeName = "id")
@@ -60,6 +62,13 @@ public class Candidate implements Serializable {
 		this.email = email;
 
 	}
-	
 
+	@DynamoDBAttribute(attributeName = "password")
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }

@@ -13,10 +13,8 @@ public class AddQuestion implements RequestHandler<Question, String> {
     public String handleRequest(Question question, Context context) {
         AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
         DynamoDBMapper mapper = new DynamoDBMapper(client);
-        if(mapper.load(Question.class, question.getNumber()) != null) {
-        	return "Error!";
-        }
-        mapper.save(question);        
+        Question questionToSave = new Question(question);
+        mapper.save(questionToSave);
         return "Success!";
     }
 }

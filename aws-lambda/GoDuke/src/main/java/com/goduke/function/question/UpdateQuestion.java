@@ -23,7 +23,7 @@ public class UpdateQuestion implements RequestHandler<APIGatewayProxyRequestEven
 		DynamoDBMapper mapper = new DynamoDBMapper(client);
 		Question question = mapper.load(Question.class, Integer.parseInt(pathParams.get("id")));
 		Question updatedQuestion = new Question(request.getBody());
-		if(question == null || !question.getNumber().equals(updatedQuestion.getNumber())) {
+		if(question == null || !question.getId().equals(updatedQuestion.getId())) {
 			 return new APIGatewayProxyResponseEvent().withBody("Error!");
 	    }
 		mapper.save(updatedQuestion);

@@ -30,7 +30,7 @@ public class DeleteQuestion implements RequestHandler<APIGatewayProxyRequestEven
 
 	private APIGatewayProxyResponseEvent deleteItem(Question question, DynamoDBMapper mapper) {
 		mapper.delete(question);
-		Question deletedQuestion = mapper.load(Question.class, question.getNumber());
+		Question deletedQuestion = mapper.load(Question.class, question.getId());
 		if (deletedQuestion == null) {
 			return new APIGatewayProxyResponseEvent().withBody("Succes!");
 		}

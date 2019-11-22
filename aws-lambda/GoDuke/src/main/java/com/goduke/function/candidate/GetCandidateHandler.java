@@ -22,8 +22,6 @@ public class GetCandidateHandler implements RequestHandler<Candidate, Candidate>
             context.getLogger().log("Error! No Candidate found with ID: " + candidateRequest.getId() + "\n");
             return null;
         }
-        context.getLogger().log("Success!");
-        // Return  candidate
         return candidate;
     }
 }
