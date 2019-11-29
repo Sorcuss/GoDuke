@@ -35,7 +35,6 @@ public class Recruiter implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
-
     @DynamoDBAttribute(attributeName = "password")
     public String getPassword() {
         return password;
