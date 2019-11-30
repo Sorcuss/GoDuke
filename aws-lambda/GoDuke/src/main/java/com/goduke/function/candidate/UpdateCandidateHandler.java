@@ -21,7 +21,7 @@ public class UpdateCandidateHandler implements RequestHandler<Candidate, String>
         if(candidate == null){
             return "candidate with " + candidateRequest.getId() + " does not exist";
         }
-        dynamoDBMapper.save(candidate);
+        dynamoDBMapper.save(candidateRequest);
         return "Success";
     }
 }

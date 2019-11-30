@@ -12,12 +12,12 @@ public class QuestionValidator {
                 && questionValidator.checkOptions(question.getOptions(), question.getType());
     }
 
-    public boolean checkType(String type){
+    private boolean checkType(String type){
         return type.equals("open") || type.equals("close") || type.equals("numerical");
 
     }
 
-    public boolean checkOptions(List<String> options, String type){
+    private boolean checkOptions(List<String> options, String type){
         if(!type.equals("close")){
             if(options != null) {
                 return options.size() == 0;
@@ -31,7 +31,7 @@ public class QuestionValidator {
         }
     }
 
-    public boolean checkNull(Question question){
+    private boolean checkNull(Question question){
         return question.getLanguage() != null
                 && question.getQuestion() != null
                 && question.getType() != null;

@@ -54,7 +54,7 @@ public class Question implements Serializable {
 
     @DynamoDBAttribute(attributeName="type")
     public String getType() {return type; }
-    public void setType(String title) { this.type = type; }
+    public void setType(String type) { this.type = type; }
 
     @DynamoDBAttribute(attributeName="language")
     public String getLanguage() { return language; }
