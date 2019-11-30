@@ -5,22 +5,24 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
+import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.goduke.model.Candidate;
+import com.google.gson.Gson;
 
-public class GetCandidateHandler implements RequestHandler<Candidate, Candidate> {
+public class GetCandidateHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+    DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
     @Override
-    public Candidate handleRequest(Candidate candidateRequest, Context context) {
-        // Create a connection to DynamoDB
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
-        // Build a mapper
-        DynamoDBMapper mapper = new DynamoDBMapper(client);
-
-        // Load the candidate by ID
-        Candidate candidate = mapper.load(Candidate.class, candidateRequest.getId());
-        if(candidate == null) {
-            context.getLogger().log("Error! No Candidate found with ID: " + candidateRequest.getId() + "\n");
-            return null;
+    public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent item, Context context) {
+        String id = item.getPathParameters().get("id");
+        if(id == null){
+            return new APIGatewayProxyResponseEvent().withStatusCode(400).withBody("id error");
         }
-        return candidate;
+        Candidate candidate = dynamoDBMapper.load(Candidate.class, id);
+        if(candidate == null) {
+            return new APIGatewayProxyResponseEvent().withStatusCode(400).withBody("Candidate does not exist");
+        }
+        Gson gson = new Gson();
+        return new APIGatewayProxyResponseEvent().withStatusCode(200).withBody(gson.toJson(candidate));
     }
 }

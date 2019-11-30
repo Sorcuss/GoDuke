@@ -8,28 +8,26 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.model.Candidate;
 
 public class DeleteCandidateHandler  implements RequestHandler<Candidate, String>{
+    DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
+
     @Override
     public String handleRequest(Candidate candidateRequest, Context context) {
-        // Create a connection to DynamoDB
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
+        if(candidateRequest.getId() == null){
+            return "Error";
+        }
+        Candidate candidateToDelete = dynamoDBMapper.load(Candidate.class, candidateRequest.getId());
 
-        // Build a mapper
-        DynamoDBMapper mapper = new DynamoDBMapper(client);
-
-        // Load the candidate by ID
-        Candidate candidate = mapper.load(Candidate.class, candidateRequest.getId());
+        Candidate candidate = dynamoDBMapper.load(Candidate.class, candidateRequest.getId());
         if(candidate == null) {
-            context.getLogger().log("Error!");
-            return "Error!";
+
+            return "Error! candidate with" + candidateRequest.getId() + " does not exits";
         }
 
-        mapper.delete(candidate);
-        Candidate deletedCandidate = mapper.load(Candidate.class, candidateRequest.getId());
+        dynamoDBMapper.delete(candidate);
+        Candidate deletedCandidate = dynamoDBMapper.load(Candidate.class, candidateRequest.getId());
         if (deletedCandidate == null) {
-            context.getLogger().log("Success!");
             return "Success!";
         }
-
         return "Error!";
     }
 }

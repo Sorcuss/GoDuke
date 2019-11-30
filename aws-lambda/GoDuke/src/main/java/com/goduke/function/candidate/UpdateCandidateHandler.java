@@ -6,21 +6,22 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.model.Candidate;
+import com.goduke.validator.CandidateValidator;
 
 public class UpdateCandidateHandler implements RequestHandler<Candidate, String> {
+    DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
+
+
     @Override
     public String handleRequest(Candidate candidateRequest, Context context) {
-        // Create a connection to DynamoDB
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
-
-        // Build a mapper
-        DynamoDBMapper mapper = new DynamoDBMapper(client);
-
-
-        //save candidate
-        mapper.save(candidateRequest);
-
-        return "Success!";
-
+        if(!CandidateValidator.validate(candidateRequest)){
+            return "Error";
+        }
+        Candidate candidate = dynamoDBMapper.load(Candidate.class, candidateRequest.getId());
+        if(candidate == null){
+            return "candidate with " + candidateRequest.getId() + " does not exist";
+        }
+        dynamoDBMapper.save(candidate);
+        return "Success";
     }
 }
