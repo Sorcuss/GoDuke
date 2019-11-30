@@ -8,23 +8,19 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.model.Question;
 
 public class DeleteQuestion implements RequestHandler<Question, String> {
+	DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
 
 	@Override
 	public String handleRequest(Question question, Context context) {
-		// Create a connection to DynamoDB
-		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
-
-		// Build a mapper
-		DynamoDBMapper mapper = new DynamoDBMapper(client);
-
-		// Load the candidate by ID
-		Question questionToDelete = mapper.load(Question.class, question.getId());
-		if(questionToDelete == null) {
-			return "Error!";
+		Question questionToDelete = dynamoDBMapper.load(Question.class, question.getId());
+		if(questionToDelete == null){
+			return "Error! question with this id does not exit";
 		}
-		mapper.delete(questionToDelete);
-
-		return "Success!";
-
+		dynamoDBMapper.delete(questionToDelete);
+		Question deletedQuestion = dynamoDBMapper.load(Question.class, question.getId());
+		if(deletedQuestion == null){
+			return "Success";
+		}
+		return "Error";
 	}
 }

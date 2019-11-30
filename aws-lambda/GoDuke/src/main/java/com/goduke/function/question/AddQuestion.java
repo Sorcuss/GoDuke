@@ -6,15 +6,17 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.model.Question;
+import com.goduke.validator.QuestionValidator;
 
 public class AddQuestion implements RequestHandler<Question, String> {
+    DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
 
     @Override
     public String handleRequest(Question question, Context context) {
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
-        DynamoDBMapper mapper = new DynamoDBMapper(client);
-
-        mapper.save(new Question(question));
-        return "Success!";
+        if(!QuestionValidator.validate(question)){
+            return "Error!";
+        }
+        dynamoDBMapper.save(question);
+        return "Success";
     }
 }

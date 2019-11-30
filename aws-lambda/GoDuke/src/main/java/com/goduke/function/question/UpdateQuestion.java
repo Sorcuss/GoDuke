@@ -8,16 +8,23 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.goduke.model.Question;
+import com.goduke.validator.QuestionValidator;
 
 import java.util.Map;
 
 public class UpdateQuestion implements RequestHandler<Question, String> {
+	DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
 
 	@Override
 	public String handleRequest(Question questionRequest, Context context) {
-		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
-		DynamoDBMapper mapper = new DynamoDBMapper(client);
-		mapper.save(questionRequest);
+		if(!QuestionValidator.validate(questionRequest)){
+			return "Error";
+		}
+		Question question = dynamoDBMapper.load(Question.class, questionRequest.getId());
+		if(question == null){
+			return "Error! question with this id does not exist";
+		}
+		dynamoDBMapper.save(questionRequest);
 		return "Success";
 	}
 }
