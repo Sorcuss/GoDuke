@@ -14,11 +14,11 @@ public class Answer implements Serializable {
     private String id;
     private String testId;
     private String candidateId;
-    private Map<String, String> answers; //key is questionId and value is answer
+    private Map<Question, String> answers; //key is questionId and value is answer
 
     public Answer() { }
 
-    public Answer(String id, String testId, String candidateId, Map<String, String> answers) {
+    public Answer(String id, String testId, String candidateId, Map<Question, String> answers) {
         this.id = id;
         this.testId = testId;
         this.candidateId = candidateId;
@@ -54,11 +54,12 @@ public class Answer implements Serializable {
         this.candidateId = candidateId;
     }
 
-    public Map<String, String> getAnswers() {
+    @DynamoDBAttribute()
+    public Map<Question, String> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(Map<String, String> answers) {
+    public void setAnswers(Map<Question, String> answers) {
         this.answers = answers;
     }
 }

@@ -4,6 +4,7 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.goduke.model.Question;
 import com.goduke.model.Test;
 import java.util.HashMap;
 import java.util.List;
@@ -34,14 +35,25 @@ public class TestValidator {
 
     public static boolean validate(Test test) {
         return TestValidator.checkNullField(test)
-                && TestValidator.checkUniqueName(test.getName(), test.getId());
+                && TestValidator.checkUniqueName(test.getName(), test.getId())
+                && validateQuestion(test);
+    }
+
+    public static boolean validateQuestion(Test test){
+        List<Question> questions = test.getQuestions();
+        for(Question question : questions){
+            if(!QuestionValidator.validate(question)){
+                return false;
+            }
+        }
+        return true;
     }
 
     private static boolean checkNullField(Test test){
         return test.getLanguages().size() != 0
                 && test.getName() != null
                 && test.getQuestions().size() != 0
-                && test.getRecruiter() != null;
+                && test.getRecruiterId() != null;
     }
 
 }

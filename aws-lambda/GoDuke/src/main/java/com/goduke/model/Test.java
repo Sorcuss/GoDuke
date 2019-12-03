@@ -15,19 +15,19 @@ public class Test implements Serializable {
 	private List<String> languages;
 	private String name;
 	private List<Question> questions;
-	private Recruiter recruiter;
+	private String recruiterId;
 	private List<Candidate> candidates;
 
 	public Test(){
 
 	}
 
-	public Test(String id, List<String> languages, String name, List<Question> questions, Recruiter recruiter, List<Candidate> candidates){
+	public Test(String id, List<String> languages, String name, List<Question> questions, String recruiterId, List<Candidate> candidates){
 		this.id = id;
 		this.languages = languages;
 		this.name = name;
 		this.questions = questions;
-		this.recruiter = recruiter;
+		this.recruiterId = recruiterId;
 		this.candidates = candidates;
 	}
 
@@ -73,13 +73,13 @@ public class Test implements Serializable {
 
 	@DynamoDBTypeConverted(converter = RecruiterTypeConverter.class)
 	@DynamoDBAttribute(attributeName = "recruiter")
-	public Recruiter getRecruiter(){
-		return this.recruiter;
+	public String getRecruiterId(){
+		return this.recruiterId;
 	}
 
 	@DynamoDBAttribute(attributeName = "recruiter")
-	public void setRecruiter(Recruiter recruiter){
-		this.recruiter = recruiter;
+	public void setRecruiterId(String recruiterId){
+		this.recruiterId = recruiterId;
 	}
 
 	@DynamoDBTypeConverted(converter = CandidatesTypeConverter.class)

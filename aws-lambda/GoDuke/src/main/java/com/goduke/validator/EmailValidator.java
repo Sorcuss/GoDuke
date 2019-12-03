@@ -5,6 +5,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.goduke.model.Candidate;
 import com.goduke.model.Recruiter;
 import com.google.gson.internal.$Gson$Types;
 
@@ -39,12 +40,15 @@ class EmailValidator {
         if(email.equals("")){
             return false;
         }
-        List<?> objects = dbMapper.scan(className, EmailValidator.getScanExpression(email));
-        if(objects.size() == 0){
+        List<Recruiter> recruiters = dbMapper.scan(Recruiter.class, EmailValidator.getScanExpression(email));
+        List<Candidate> candidates = dbMapper.scan(Candidate.class, EmailValidator.getScanExpression(email));
+        if(recruiters.size() == 0 && candidates.size() == 0){
             return true;
         }
         if(id != null){
-            return checkUsersEmail(id,email, className, objects);
+            boolean recTest = EmailValidator.checkUsersEmail(email, id, Recruiter.class, recruiters);
+            boolean canTest = EmailValidator.checkUsersEmail(email, id, Candidate.class, candidates);
+            return recTest || canTest;
         }
         return false;
     }

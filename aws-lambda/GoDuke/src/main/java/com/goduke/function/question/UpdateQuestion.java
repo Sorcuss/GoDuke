@@ -11,7 +11,7 @@ import com.goduke.model.Question;
 import com.goduke.validator.QuestionValidator;
 
 import java.util.Map;
-
+@Deprecated
 public class UpdateQuestion implements RequestHandler<Question, String> {
 	DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
 

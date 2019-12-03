@@ -8,6 +8,7 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.model.Question;
 import com.goduke.validator.QuestionValidator;
 
+@Deprecated
 public class AddQuestion implements RequestHandler<Question, String> {
     DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
 
