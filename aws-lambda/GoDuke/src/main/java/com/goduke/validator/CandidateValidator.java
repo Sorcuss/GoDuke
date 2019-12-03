@@ -8,7 +8,7 @@ public class CandidateValidator {
     public static boolean validate(Candidate candidate){
         return CandidateValidator.checkNull(candidate)
                 && EmailValidator.checkEmailFormat(candidate.getEmail())
-                && EmailValidator.checkUniqueEmail(candidate.getEmail(), candidate.getId(), Candidate.class);
+                && EmailValidator.checkUniqueEmail(candidate.getEmail(), candidate.getId());
     }
 
     private static boolean checkNull(Candidate candidate){

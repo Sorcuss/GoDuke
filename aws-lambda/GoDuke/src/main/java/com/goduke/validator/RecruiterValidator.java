@@ -17,7 +17,7 @@ public class RecruiterValidator {
         RecruiterValidator recruiterValidator = new RecruiterValidator();
         return EmailValidator.checkEmailFormat(recruiter.getEmail()) &&
                 recruiterValidator.checkNullField(recruiter) &&
-                EmailValidator.checkUniqueEmail(recruiter.getEmail(), recruiter.getId(), Recruiter.class);
+                EmailValidator.checkUniqueEmail(recruiter.getEmail(), recruiter.getId());
     }
 
     private boolean checkNullField(Recruiter recruiter){

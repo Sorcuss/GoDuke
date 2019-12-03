@@ -36,7 +36,7 @@ class EmailValidator {
         }
     }
 
-    static boolean checkUniqueEmail(String email, String id, Class className) {
+    static boolean checkUniqueEmail(String email, String id) {
         if(email.equals("")){
             return false;
         }
