@@ -29,6 +29,7 @@ public class Question implements Serializable {
         this.question = question;
         this.options = new ArrayList<>(options);
     }
+
     public Question(Question question) {
         this.type = question.getType();
         this.language = question.getLanguage();
