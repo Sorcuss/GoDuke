@@ -10,19 +10,17 @@ import com.goduke.model.Recruiter;
 import com.google.gson.Gson;
 import com.google.gson.internal.$Gson$Preconditions;
 
-public class GetRecruiterHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+public class GetRecruiterHandler  {
     private DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
-    @Override
-    public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent input, Context context){
-        String id = input.getPathParameters().get("id");
+    public Recruiter handleRequest(Recruiter recruiter, Context context){
+        String id = recruiter.getId();
         if(id == null){
-            return new APIGatewayProxyResponseEvent().withStatusCode(400).withBody("null id");
+            throw new RuntimeException("null id");
         }
         Recruiter recruiterToGet = dynamoDBMapper.load(Recruiter.class, id);
         if(recruiterToGet == null){
-            return new APIGatewayProxyResponseEvent().withStatusCode(400).withBody("recruiter does not exist");
+            throw new RuntimeException("recruiter does not exist");
         }
-        Gson gson = new Gson();
-        return new APIGatewayProxyResponseEvent().withStatusCode(200).withBody(gson.toJson(recruiterToGet));
+        return recruiterToGet;
     }
 }
