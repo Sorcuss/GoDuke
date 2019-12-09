@@ -1,8 +1,8 @@
 
 function getPoolData(){
 	return {
-			UserPoolId: us-east-1_RXpTPKO73,
-			ClientId: 4eud5dk5hu3p3nnscj9m5k9tl6 
+			UserPoolId://here goes userpoolid,
+			ClientId: //here goes cilentid
 		};
 }
 
