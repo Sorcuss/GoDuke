@@ -27,7 +27,7 @@ class EmailValidator {
                 .withFilterExpression("email = :val1").withExpressionAttributeValues(eav);
     }
 
-    private static boolean checkUsersEmail(String id, String email, Class className, List<?> objects){
+    private static boolean checkUsersEmail(String id, Class className, List<?> objects){
         try{
             Object idValue = className.getMethod("getId").invoke(objects.get(0));
             return idValue.equals(id);
@@ -46,9 +46,10 @@ class EmailValidator {
             return true;
         }
         if(id != null){
-            boolean recTest = EmailValidator.checkUsersEmail(email, id, Recruiter.class, recruiters);
-            boolean canTest = EmailValidator.checkUsersEmail(email, id, Candidate.class, candidates);
-            return recTest || canTest;
+            boolean test = EmailValidator.checkUsersEmail(id,
+                    candidates.size() == 1 ? Candidate.class : Recruiter.class,
+                    candidates.size() == 1 ? candidates : recruiters);
+            return test;
         }
         return false;
     }
