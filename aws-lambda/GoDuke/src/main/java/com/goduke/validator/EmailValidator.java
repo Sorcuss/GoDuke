@@ -46,10 +46,9 @@ class EmailValidator {
             return true;
         }
         if(id != null){
-            boolean test = EmailValidator.checkUsersEmail(id,
+            return EmailValidator.checkUsersEmail(id,
                     candidates.size() == 1 ? Candidate.class : Recruiter.class,
                     candidates.size() == 1 ? candidates : recruiters);
-            return test;
         }
         return false;
     }
