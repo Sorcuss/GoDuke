@@ -12,7 +12,7 @@ public class AddRecruiterHandler implements RequestHandler<Recruiter, String> {
     @Override
     public String handleRequest(Recruiter recruiter, Context context) {
         if(!RecruiterValidator.validate(recruiter)){
-            return "Error";
+            throw new RuntimeException("recruiter have invalid data");
         }
         Recruiter recruiterToAdd = new Recruiter(recruiter);
         dynamoDBMapper.save(recruiterToAdd);

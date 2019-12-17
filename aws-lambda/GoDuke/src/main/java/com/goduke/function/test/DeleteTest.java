@@ -11,15 +11,18 @@ public class DeleteTest implements RequestHandler<Test, String> {
 
     @Override
     public String handleRequest(Test input, Context context) {
+        if(input.getId() == null){
+            throw new RuntimeException("error null id");
+        }
         Test test = dynamoDBMapper.load(Test.class, input.getId());
         if(test == null) {
-            return "Test with this id does not exist";
+            throw new RuntimeException("error test does not exist");
         }
         dynamoDBMapper.delete(test);
         Test deletedTest = dynamoDBMapper.load(Test.class, input.getId());
         if(deletedTest == null){
             return "Success";
         }
-        return "Error";
+        throw new RuntimeException("error during delete");
     }
 }

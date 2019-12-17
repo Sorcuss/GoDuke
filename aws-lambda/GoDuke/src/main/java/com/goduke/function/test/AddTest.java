@@ -19,7 +19,7 @@ public class AddTest implements RequestHandler<Test, String> {
     @Override
     public String handleRequest(Test input, Context context) {
         if(!TestValidator.validate(input)){
-            return "Error";
+            throw new RuntimeException("test have invalid data");
         }
         dynamoDBMapper.save(input);
         return "Success";

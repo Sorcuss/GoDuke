@@ -13,7 +13,7 @@ public class AddCandidateHandler implements RequestHandler<Candidate, String> {
     @Override
     public String handleRequest(Candidate candidateRequest, Context context) {
         if(!CandidateValidator.validate(candidateRequest)){
-            return "Error";
+            throw new RuntimeException("candidate have invalid data");
         }
         dynamoDBMapper.save(candidateRequest);
         return "Success!";

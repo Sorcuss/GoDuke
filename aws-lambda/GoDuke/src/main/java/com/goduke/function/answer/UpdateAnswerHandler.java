@@ -6,18 +6,19 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.model.Answer;
 
-public class GetAnswerHandler implements RequestHandler<Answer, Answer> {
+public class UpdateAnswerHandler implements RequestHandler<Answer, String> {
     private DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
+
     @Override
-    public Answer handleRequest(Answer input, Context context) {
-        String id = input.getId();
-        if(id == null){
-            throw new RuntimeException("null id");
+    public String handleRequest(Answer input, Context context) {
+        if(input.getId() == null){
+            throw new RuntimeException("error null id");
         }
-        Answer answer = dynamoDBMapper.load(Answer.class, id);
+        Answer answer = dynamoDBMapper.load(Answer.class, input.getId());
         if(answer == null){
-            throw new RuntimeException("answer does not exist");
+            throw new RuntimeException("error answer does not exist");
         }
-        return answer;
+        dynamoDBMapper.save(input);
+        return "Success";
     }
 }

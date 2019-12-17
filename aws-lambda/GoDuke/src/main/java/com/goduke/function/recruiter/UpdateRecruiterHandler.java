@@ -16,7 +16,7 @@ public class UpdateRecruiterHandler implements RequestHandler<Recruiter, String>
     @Override
     public String handleRequest(Recruiter recruiter, Context context) {
         if(!RecruiterValidator.validate(recruiter)){
-            return "Error";
+            throw new RuntimeException("recruiter have invalid data");
         }
         Recruiter recruiterToUpdate = dynamoDBMapper.load(Recruiter.class, recruiter.getId());
         if(recruiterToUpdate == null){
