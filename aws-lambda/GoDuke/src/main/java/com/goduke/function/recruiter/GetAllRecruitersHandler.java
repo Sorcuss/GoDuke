@@ -11,7 +11,6 @@ import java.util.List;
 public class GetAllRecruitersHandler {
     private DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
     public List<Recruiter>  handleRequest(Recruiter recruiter, Context context){
-        List<Recruiter>  scanResult = dynamoDBMapper.scan(Recruiter.class, new DynamoDBScanExpression());
-        return scanResult;
+        return dynamoDBMapper.scan(Recruiter.class, new DynamoDBScanExpression());
     }
 }
