@@ -13,14 +13,13 @@ public class DeleteCandidateHandler  implements RequestHandler<Candidate, String
     @Override
     public String handleRequest(Candidate candidateRequest, Context context) {
         if(candidateRequest.getId() == null){
-            return "Error";
+            throw new RuntimeException("error null id");
         }
         Candidate candidateToDelete = dynamoDBMapper.load(Candidate.class, candidateRequest.getId());
 
         Candidate candidate = dynamoDBMapper.load(Candidate.class, candidateRequest.getId());
         if(candidate == null) {
-
-            return "Error! candidate with" + candidateRequest.getId() + " does not exits";
+            throw new RuntimeException("error candidate does not exist");
         }
 
         dynamoDBMapper.delete(candidate);
@@ -28,6 +27,6 @@ public class DeleteCandidateHandler  implements RequestHandler<Candidate, String
         if (deletedCandidate == null) {
             return "Success!";
         }
-        return "Error!";
+        throw new RuntimeException("error during delete");
     }
 }

@@ -13,11 +13,11 @@ public class UpdateTest implements RequestHandler<Test, String> {
     @Override
     public String handleRequest(Test input, Context context) {
         if(!TestValidator.validate(input)){
-            return "Error";
+            throw new RuntimeException("test have invalid data");
         }
         Test testToUpdate = dynamoDBMapper.load(Test.class, input.getId());
         if(testToUpdate == null){
-            return "Error";
+            throw new RuntimeException("test does not exist");
         }
         dynamoDBMapper.save(input);
         return "Success";

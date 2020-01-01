@@ -15,11 +15,11 @@ public class UpdateCandidateHandler implements RequestHandler<Candidate, String>
     @Override
     public String handleRequest(Candidate candidateRequest, Context context) {
         if(!CandidateValidator.validate(candidateRequest)){
-            return "Error";
+            throw new RuntimeException("Candidate have invalid data");
         }
         Candidate candidate = dynamoDBMapper.load(Candidate.class, candidateRequest.getId());
         if(candidate == null){
-            return "candidate with " + candidateRequest.getId() + " does not exist";
+            throw new RuntimeException("candidate does not exist");
         }
         dynamoDBMapper.save(candidateRequest);
         return "Success";

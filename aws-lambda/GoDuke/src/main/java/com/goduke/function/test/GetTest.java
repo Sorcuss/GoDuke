@@ -10,19 +10,18 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent
 import com.goduke.model.Test;
 import com.google.gson.Gson;
 
-public class GetTest implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+public class GetTest implements RequestHandler<Test, Test> {
     DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
     @Override
-    public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent input, Context context) {
-        String id = input.getPathParameters().get("id");
+    public Test handleRequest(Test input, Context context) {
+        String id = input.getId();
         if(id == null){
-            return new APIGatewayProxyResponseEvent().withStatusCode(400).withBody("error");
+            throw new RuntimeException("null id");
         }
         Test test = dynamoDBMapper.load(Test.class, id);
         if(test == null){
-            return new APIGatewayProxyResponseEvent().withStatusCode(400).withBody("test with this id does not exist");
+           throw new RuntimeException("test does not exist");
         }
-        Gson gson = new Gson();
-        return new APIGatewayProxyResponseEvent().withStatusCode(200).withBody(gson.toJson(test));
+        return test;
     }
 }
