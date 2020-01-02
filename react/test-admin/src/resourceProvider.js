@@ -1,7 +1,7 @@
 import { fetchUtils } from 'react-admin';
 import { stringify } from 'query-string';
 
-const apiUrl = 'https://m791nsgww4.execute-api.us-east-1.amazonaws.com/first';
+const apiUrl = 'http://jsonplaceholder.typicode.com';
 const httpClient = fetchUtils.fetchJson;
 
 export default {
