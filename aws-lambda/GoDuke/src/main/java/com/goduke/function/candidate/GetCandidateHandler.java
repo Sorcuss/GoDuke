@@ -1,27 +1,20 @@
 package com.goduke.function.candidate;
 
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
-import com.goduke.model.Candidate;
-import com.google.gson.Gson;
+import com.goduke.cognito.AmazonCognitoConnector;
 
-public class GetCandidateHandler implements RequestHandler<Candidate, Candidate> {
-    DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
+import java.util.List;
+
+public class GetCandidateHandler implements RequestHandler<String, List<String>> {
     @Override
-    public Candidate handleRequest(Candidate item, Context context) {
-        String id = item.getId();
-        if(id == null){
-            throw new RuntimeException("null id");
-        }
-        Candidate candidateToGet = dynamoDBMapper.load(Candidate.class, id);
-        if(candidateToGet == null){
-            throw new RuntimeException("candidate does not exist");
-        }
-        return candidateToGet;
+    public List<String> handleRequest(String input, Context context) {
+        return null;
     }
+//    AmazonCognitoConnector amazonCognitoConnector = new AmazonCognitoConnector();
+//    @Override
+//    public List<String> handleRequest(String count, Context context) {
+//        System.out.println("hello");
+//        return amazonCognitoConnector.listUsers(60);
+//    }
 }
