@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
 
 public class GetAllCandidatesHandler implements RequestHandler<Object, List<User>> {
 
+    private Object amazonCognitoConnector;
+
     @Override
     public List<User> handleRequest(Object size, Context context) {
         AWSCognitoIdentityProvider cognitoIdentityProvider = AWSCognitoIdentityProviderClientBuilder.defaultClient();
