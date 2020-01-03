@@ -1,1 +1,16 @@
-/target/
+*.class
+target
+/bin/
+/.settings/
+.project
+.classpath
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Serverless directories
+.serverless
+/src/main/java/com/goduke/converter/
+/src/main/java/com/goduke/cognito/AmazonCognitoConnector.java
