@@ -5,31 +5,29 @@ import java.io.Serializable;
 
 public class User implements Serializable {
     private String mail;
-
-    public Boolean getVerified() {
-        return verified;
-    }
-
-    public void setVerified(Boolean verified) {
-        this.verified = verified;
-    }
-
-    private Boolean verified;
-
-    public User(String username, Boolean verified) {
-        this.mail = username;
-        this.verified = verified;
-    }
-
+    private String id;
     public User() {
     }
 
-    public String getUsername() {
+    public User(String mail, String id) {
+        this.mail = mail;
+        this.id = id;
+    }
+
+    public String getMail() {
         return mail;
     }
 
-    public void setUsername(String username) {
-        this.mail = username;
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
 

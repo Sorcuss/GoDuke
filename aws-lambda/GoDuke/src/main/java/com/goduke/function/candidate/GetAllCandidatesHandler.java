@@ -26,14 +26,14 @@ public class GetAllCandidatesHandler implements RequestHandler<Object, List<User
 
     private User createUser(UserType type){
         String mail = "";
-        Boolean verified = Boolean.FALSE;
+        String id = "";
         for(AttributeType attributeType : type.getAttributes()){
-            if(attributeType.getName().equals("email_verified")){
-                verified = Boolean.getBoolean(attributeType.getValue());
-            }else if(attributeType.getName().equals("email")){
+             if(attributeType.getName().equals("email")){
                 mail = attributeType.getValue();
-            }
+            }else if(attributeType.getName().equals("sub")){
+                 id = attributeType.getValue();
+             }
         }
-        return new User(mail, verified);
+        return new User(mail,id);
     }
 }
