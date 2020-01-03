@@ -15,27 +15,20 @@ public class TestValidator {
         HashMap<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
         eav.put(":val1", new AttributeValue().withS(name));
         return new DynamoDBScanExpression()
-                .withFilterExpression("name = :val1").withExpressionAttributeValues(eav);
+                .withFilterExpression("testName = :val1").withExpressionAttributeValues(eav);
     }
 
-    private static boolean checkUniqueName(String name, String id){
+    private static boolean checkUniqueName(String name){
         if(name.equals("")){
             return false;
         }
         List<Test> objects = dynamoDBMapper.scan(Test.class, TestValidator.getScanExpression(name));
-        if(objects.size() == 0){
-            return true;
-        }
-        if(id != null){
-            String idValue = objects.get(0).getId();
-            return idValue.equals(id);
-        }
-        return false;
+        return objects.size() == 0;
     }
 
     public static boolean validate(Test test) {
         return TestValidator.checkNullField(test)
-                && TestValidator.checkUniqueName(test.getName(), test.getId())
+                && TestValidator.checkUniqueName(test.getTestName())
                 && validateQuestion(test);
     }
 
@@ -51,9 +44,9 @@ public class TestValidator {
 
     private static boolean checkNullField(Test test){
         return test.getLanguages().size() != 0
-                && test.getName() != null
+                && test.getTestName() != null
                 && test.getQuestions().size() != 0
-                && test.getRecruiterId() != null;
+                && test.getRecruiter() != null;
     }
 
 }
