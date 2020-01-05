@@ -13,15 +13,15 @@ import org.w3c.dom.css.Rect;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddTest implements RequestHandler<Test, String> {
+public class AddTest implements RequestHandler<Test, Test> {
     DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
 
     @Override
-    public String handleRequest(Test input, Context context) {
+    public Test handleRequest(Test input, Context context) {
         if(!TestValidator.validate(input)){
             throw new RuntimeException("test have invalid data");
         }
         dynamoDBMapper.save(input);
-        return "Success";
+        return input;
     }
 }

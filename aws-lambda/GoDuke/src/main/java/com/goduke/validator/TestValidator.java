@@ -31,6 +31,10 @@ public class TestValidator {
                 && TestValidator.checkUniqueName(test.getTestName())
                 && validateQuestion(test);
     }
+    public static boolean validateUpdate(Test test) {
+        return TestValidator.checkNullField(test)
+                && validateQuestion(test);
+    }
 
     public static boolean validateQuestion(Test test){
         List<Question> questions = test.getQuestions();

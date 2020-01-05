@@ -8,11 +8,11 @@ import com.goduke.model.Test;
 import com.goduke.validator.TestValidator;
 
 
-public class UpdateTest implements RequestHandler<Test, String> {
+public class UpdateTest implements RequestHandler<Test, Test> {
     DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
     @Override
-    public String handleRequest(Test input, Context context) {
-        if(!TestValidator.validate(input)){
+    public Test handleRequest(Test input, Context context) {
+        if(!TestValidator.validateUpdate(input)){
             throw new RuntimeException("test have invalid data");
         }
         Test testToUpdate = dynamoDBMapper.load(Test.class, input.getId());
@@ -20,6 +20,6 @@ public class UpdateTest implements RequestHandler<Test, String> {
             throw new RuntimeException("test does not exist");
         }
         dynamoDBMapper.save(input);
-        return "Success";
+        return input;
     }
 }

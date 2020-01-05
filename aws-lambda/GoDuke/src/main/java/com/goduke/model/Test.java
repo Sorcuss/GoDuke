@@ -15,14 +15,14 @@ public class Test implements Serializable {
 	private List<String> languages;
 	private String testName;
 	private List<Question> questions;
-	private Recruiter recruiter;
-	private List<Candidate> candidates;
+	private String recruiter;
+	private List<String> candidates;
 
 	public Test(){
 
 	}
 
-	public Test(String id, List<String> languages, String name, List<Question> questions, Recruiter recruiter, List<Candidate> candidates){
+	public Test(String id, List<String> languages, String name, List<Question> questions, String recruiter, List<String> candidates){
 		this.id = id;
 		this.languages = languages;
 		this.testName = name;
@@ -71,25 +71,25 @@ public class Test implements Serializable {
 	}
 
 
-	@DynamoDBTypeConverted(converter = RecruiterTypeConverter.class)
+	//@DynamoDBTypeConverted(converter = RecruiterTypeConverter.class)
 	@DynamoDBAttribute(attributeName = "recruiter")
-	public Recruiter getRecruiter(){
+	public String getRecruiter(){
 		return this.recruiter;
 	}
 
-	@DynamoDBAttribute(attributeName = "recruiter")
-	public void setRecruiter(Recruiter recruiter){
+	//@DynamoDBAttribute(attributeName = "recruiter")
+	public void setRecruiter(String recruiter){
 		this.recruiter = recruiter;
 	}
 
-	@DynamoDBTypeConverted(converter = CandidatesTypeConverter.class)
+	//@DynamoDBTypeConverted(converter = CandidatesTypeConverter.class)
 	@DynamoDBAttribute(attributeName = "candidates")
-	public List<Candidate> getCandidates(){
+	public List<String> getCandidates(){
 		return this.candidates;
 	}
 
-	@DynamoDBAttribute(attributeName = "candidates")
-	public void setCandidates(List<Candidate> candidates){
+	//@DynamoDBAttribute(attributeName = "candidates")
+	public void setCandidates(List<String> candidates){
 		this.candidates = candidates;
 	}
 
