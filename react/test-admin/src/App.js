@@ -1,16 +1,11 @@
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
+import { Admin, Resource, EditGuesser } from 'react-admin';
 import authProvider from "./authProvider";
 import resourceProvider from './resourceProvider';
 import UserIcon from '@material-ui/icons/People';
+import ListIcon from '@material-ui/icons/List';
 import {CandidateCreate, CandidatesList} from "./candidates";
-
-
-// const App = () => (
-// <Admin authProvider={authProvider} dataProvider={resourceProvider}>
-//   <Resource name="users" list={ListGuesser} />
-// </Admin>
-// );
+import {TestCreate, TestsList} from "./tests";
 
 const App = () => (
     <Admin
@@ -21,7 +16,10 @@ const App = () => (
             permissions.includes('recruiters')
                 ?  <Resource name="candidates" list={CandidatesList}  create={CandidateCreate} icon={UserIcon}/>
                 : null,
-        , <Resource name="answers"/>]}
+            permissions.includes('recruiters')
+                ?  <Resource name="tests" list={TestsList} create={TestCreate} edit={EditGuesser}  icon={ListIcon}/>
+                : null,
+         <Resource name="answers"/>]}
     </Admin>
 );
 

@@ -73,28 +73,24 @@ export default {
     //     }).then(({ json }) => ({ data: json }));
     // },
 
-    create: (resource, params) =>
+    create: (resource, params) => {
+        console.log(JSON.stringify(params.data))
         httpClient(`${apiUrl}/${resource}`, {
             method: 'POST',
             body: JSON.stringify(params.data),
-        }).then(({ json }) => ({
-            data: { ...params.data, id: json.id },
-        })),
+        }).then(({ json }) => {
+            if(json.languages){
+                document.location.href="/#/tests";
+            }else{
+                document.location.href="/#/candidates";
+            }
+        })},
 
-    delete: (resource, params) => {
-        if(params.previousData.mail != null){
-            httpClient(`${apiUrl}/${resource}`, {
-                method: 'DELETE',
-                body: JSON.stringify(params.previousData),
-            }).then(() => {
-                document.location.href="/candidates";
-            })
-        }else {
-            console.log(params);
-        }
-
-
-    },
+    delete: (resource, params) =>
+        httpClient(`${apiUrl}/${resource}`, {
+            method: 'DELETE',
+            body: JSON.stringify(params.previousData)
+        }).then(({ json }) => ({ data: json })),
 
     // deleteMany: (resource, params) => {
     //     const query = {
