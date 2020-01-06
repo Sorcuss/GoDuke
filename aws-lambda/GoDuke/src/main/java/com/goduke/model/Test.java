@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @DynamoDBTable(tableName = "tests")
-public class Test implements Serializable {
+public class Test extends TestWrapper implements Serializable {
 
 	private String id;
 	private List<String> languages;
@@ -23,12 +23,12 @@ public class Test implements Serializable {
 	}
 
 	public Test(String id, List<String> languages, String name, List<Question> questions, String recruiter, List<String> candidates){
-		this.id = id;
-		this.languages = languages;
-		this.testName = name;
-		this.questions = questions;
-		this.recruiter = recruiter;
-		this.candidates = candidates;
+			this.id = id;
+			this.languages = languages;
+			this.testName = name;
+			this.questions = questions;
+			this.recruiter = recruiter;
+			this.candidates = candidates;
 	}
 
 	@DynamoDBHashKey(attributeName = "id")

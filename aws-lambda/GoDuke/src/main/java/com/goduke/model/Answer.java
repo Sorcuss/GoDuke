@@ -1,30 +1,36 @@
 package com.goduke.model;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
-import com.goduke.converter.CandidateTypeConverter;
 import com.goduke.converter.TestTypeConverter;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 @DynamoDBTable(tableName = "answers")
 public class Answer implements Serializable {
 
     private String id;
     private Test test;
-    private Candidate candidate;
+    private String candidate;
     private List<String> answers;
+    private List<Boolean> rates;
+    private boolean isRated;
 
     public Answer(){
 
     }
 
-    public Answer(String id, Test test, Candidate candidate, List<String> answers) {
+    public Answer(String id, Test test, String candidate, List<String> answers) {
         this.id = id;
         this.test = test;
         this.candidate = candidate;
         this.answers = answers;
+    }
+
+    public Answer(String id, Test test, String candidate, List<String> answers, List<Boolean> rates, boolean isRated) {
+        this(id, test, candidate, answers);
+        this.rates = rates;
+        this.isRated = isRated;
     }
 
     @DynamoDBHashKey(attributeName = "id")
@@ -48,14 +54,12 @@ public class Answer implements Serializable {
         this.test = test;
     }
 
-    @DynamoDBTypeConverted(converter = CandidateTypeConverter.class)
     @DynamoDBAttribute(attributeName = "candidate")
-    public Candidate getCandidate() {
+    public String getCandidate() {
         return candidate;
     }
 
-    @DynamoDBAttribute(attributeName = "candidate")
-    public void setCandidate(Candidate candidate) {
+    public void setCandidate(String candidate) {
         this.candidate = candidate;
     }
 
@@ -66,5 +70,23 @@ public class Answer implements Serializable {
 
     public void setAnswers(List<String> answers) {
         this.answers = answers;
+    }
+
+    @DynamoDBAttribute(attributeName = "rates")
+    public List<Boolean> getRates() {
+        return rates;
+    }
+
+    public void setRates(List<Boolean> rates) {
+        this.rates = rates;
+    }
+
+    @DynamoDBAttribute(attributeName = "rated")
+    public boolean isRated() {
+        return isRated;
+    }
+
+    public void setRated(boolean rated) {
+        isRated = rated;
     }
 }
