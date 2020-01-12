@@ -24,7 +24,11 @@ public class GetCandidateTests implements RequestHandler<Candidate, List<TestWra
         for(Test test: candidatesTest){
             Answer closedTest = candidateAnswers.stream().filter(answer -> answer.getTest().getId().equals(test.getId())).findFirst().orElse(null);
             if(closedTest != null){
-                result.add(new CompletedTest(closedTest.getTest().getTestName(), calculateScore(closedTest), closedTest.isRated()));
+                if(closedTest.isRated()) {
+                    result.add(new CompletedTest(closedTest.getTest().getTestName(), calculateScore(closedTest), closedTest.isRated()));
+                }else{
+                    result.add(new CompletedTest(closedTest.getTest().getTestName(), 0, false));
+                }
             }
             else{
                 result.add(test);

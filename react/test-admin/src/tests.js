@@ -64,7 +64,7 @@ export const TestCreate = (props) => (
                         <TextInput label="Question" source="question" />
                         <ArrayInput label="Options" source="options">
                             <SimpleFormIterator>
-                                <TextInput label="Option" source="option" />
+                                <TextInput label="Option" default="Default Value"/>
                             </SimpleFormIterator>
                         </ArrayInput>
                     </SimpleFormIterator>

@@ -2,7 +2,7 @@ Resources:
   Function:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: com.goduke.function.test.UpdateTest
+      Handler: com.goduke.function.test.GetCandidateTests
       CodeUri: Function
       Runtime: java8
       Timeout: 300

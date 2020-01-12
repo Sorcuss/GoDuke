@@ -6,9 +6,11 @@ import UserIcon from '@material-ui/icons/People';
 import ListIcon from '@material-ui/icons/List';
 import {CandidateCreate, CandidatesList} from "./candidates";
 import {TestCreate, TestsList} from "./tests";
+import TestingPane from "./testing";
 
 const App = () => (
     <Admin
+        dashboard={TestingPane}
         dataProvider={resourceProvider}
         authProvider={authProvider}
     >
