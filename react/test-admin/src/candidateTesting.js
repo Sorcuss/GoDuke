@@ -24,6 +24,7 @@ import TextField from '@material-ui/core/TextField';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import axios from 'axios'
+import authProvider from "./authProvider";
 
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 function TabPanel(props) {
@@ -103,7 +104,12 @@ export default function CandidateTesting(props) {
         const response = await axios.post(
             'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/answers',
             request,
-            { headers: { 'Content-Type': 'application/json' } }
+            {
+                headers: {
+                    'Authorization': await authProvider.getHeader(),
+                    'Content-Type': 'application/json'
+                }
+            }
         )
             document.location.href="/";
     }
@@ -114,6 +120,7 @@ export default function CandidateTesting(props) {
             <AppBar position="static">
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
                     <Tab label="Your tests" {...a11yProps(0)} />
+                    <Tab label="Ended tests" {...a11yProps(1)} />
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>

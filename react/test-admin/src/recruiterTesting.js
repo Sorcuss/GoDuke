@@ -23,6 +23,7 @@ import axios from 'axios'
 import { CSVLink } from "react-csv";
 import TextField from '@material-ui/core/TextField';
 import CSVReader from 'react-csv-reader'
+import authProvider from "./authProvider";
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -74,7 +75,11 @@ export default function RecruiterTesting(props) {
 
     const handleOpenDialog = async  (answers) => {
         setOpen(true);
-         const response = await axios.get("https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/tests/" + answers.test.id);
+         const response = await axios.get("https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/tests/" + answers.test.id, {
+             headers: {
+                 'Authorization': await authProvider.getHeader()
+             }
+         });
          setTest(response.data);
          setQuestions(response.data.questions)
          setAnswer(answers.answers)
@@ -102,8 +107,12 @@ export default function RecruiterTesting(props) {
         }
         const response = await axios.put(
             'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/answers',
-            request,
-            { headers: { 'Content-Type': 'application/json' } }
+            request, {
+                headers: {
+                    'Authorization': await authProvider.getHeader(),
+                    'Content-Type': 'application/json'
+                }
+            }
         )
         document.location.href="/";
     }
@@ -144,8 +153,12 @@ export default function RecruiterTesting(props) {
         }
         const response = await axios.post(
             'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/tests',
-            request,
-            { headers: { 'Content-Type': 'application/json' } }
+            request,{
+                headers: {
+                    'Authorization': await authProvider.getHeader(),
+                    'Content-Type': 'application/json'
+                }
+            }
         )
         alert(response)
         console.log(request)

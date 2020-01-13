@@ -1,8 +1,12 @@
 import { fetchUtils } from 'react-admin';
+import authProvider from "./authProvider";
 // import { stringify } from 'query-string';
 
 const apiUrl = 'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1';
-const httpClient = fetchUtils.fetchJson;
+const httpClient = async (url, options = {}) => {
+    options.headers.set('Authorization', await authProvider.getHeader());
+    return fetchUtils.fetchJson(url, options);
+}
 
 export default {
     getList: (resource, params) => {
@@ -17,16 +21,17 @@ export default {
         const url = `${apiUrl}/${resource}`;
 
 
-        const  result = httpClient(url).then(({ headers, json }) => (
+        const  result = httpClient(url, {headers: new Map()}).then(({ headers, json }) => (
             {
             data: json,
-            total: parseInt(json.length, 10)
+            total: parseInt(json.length, 10),
+
         }));
         return result;
     },
 
     getOne: (resource, params) =>
-        httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
+        httpClient(`${apiUrl}/${resource}/${params.id}`, {headers: new Map()}).then(({ json }) => ({
             data: json,
         })),
 
@@ -61,6 +66,7 @@ export default {
         httpClient(`${apiUrl}/${resource}/${params.id}`, {
             method: 'PUT',
             body: JSON.stringify(params.data),
+            headers: new Map()
         }).then(({ json }) => ({ data: json })),
 
     // updateMany: (resource, params) => {
@@ -78,6 +84,7 @@ export default {
         httpClient(`${apiUrl}/${resource}`, {
             method: 'POST',
             body: JSON.stringify(params.data),
+            headers: new Map()
         }).then(({ json }) => {
             if(json.languages){
                 document.location.href="/#/tests";
@@ -89,7 +96,8 @@ export default {
     delete: (resource, params) =>
         httpClient(`${apiUrl}/${resource}`, {
             method: 'DELETE',
-            body: JSON.stringify(params.previousData)
+            body: JSON.stringify(params.previousData),
+            headers: new Map()
         }).then(({ json }) => ({ data: json })),
 
     // deleteMany: (resource, params) => {

@@ -18,18 +18,29 @@ class TestingPane extends React.Component {
         this.setState({id})
         if(auth == "recruiters"){
             const url = 'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/answers';
-            await fetch(url)
+            await fetch(url, {
+                headers: {
+                    'Authorization': await authProvider.getHeader()
+                }
+            })
                 .then(response => response.json())
                 .then(answers => this.setState({ answers }));
             const url2 = 'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/tests';
-            await fetch(url2)
+            await fetch(url2,{
+                headers: {
+                    'Authorization': await authProvider.getHeader()
+                }
+            })
                 .then(response => response.json())
                 .then(tests => this.setState({ tests }));
 
         }else if(auth == "candidates"){
             const url = 'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/testscandidate/' + id.username;
-            console.log(url)
-            await fetch(url)
+            await fetch(url,  {
+                headers: {
+                    'Authorization': await authProvider.getHeader()
+                }
+            })
                 .then(response => response.json())
                 .then(tests => this.setState({ tests }));
         }
