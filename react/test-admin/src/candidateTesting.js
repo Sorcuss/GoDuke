@@ -114,7 +114,6 @@ export default function CandidateTesting(props) {
             <AppBar position="static">
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
                     <Tab label="Your tests" {...a11yProps(0)} />
-                    <Tab label="Checked tests" {...a11yProps(1)} />
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
@@ -153,7 +152,7 @@ export default function CandidateTesting(props) {
                         <TableRow>
                             <TableCell>Test name</TableCell>
                             <TableCell>Is rated?</TableCell>
-                            <TableCell>Score</TableCell>
+                            <TableCell>Rate</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -162,7 +161,7 @@ export default function CandidateTesting(props) {
                                 <TableRow>
                                     <TableCell>{test.name}</TableCell>
                                     <TableCell>{test.rated ? "Yes" : "No"}</TableCell>
-                                    <TableCell>{test.rated ? test.score : "N/A"}</TableCell>
+                                    <TableCell>{test.rated ? test.score + "/" + 10 : "N/A"}</TableCell>
                                 </TableRow>
                             )
                         })}
