@@ -18,17 +18,23 @@ public class TestValidator {
                 .withFilterExpression("testName = :val1").withExpressionAttributeValues(eav);
     }
 
-    private static boolean checkUniqueName(String name){
+    private static boolean checkUniqueName(String name, String id){
         if(name.equals("")){
             return false;
         }
         List<Test> objects = dynamoDBMapper.scan(Test.class, TestValidator.getScanExpression(name));
+        if(id != null)
+            if(objects.get(0).getId().equals(id)) return true;
         return objects.size() == 0;
     }
 
     public static boolean validate(Test test) {
         return TestValidator.checkNullField(test)
-                && TestValidator.checkUniqueName(test.getTestName())
+                && TestValidator.checkUniqueName(test.getTestName(), test.getId())
+                && validateQuestion(test);
+    }
+    public static boolean validateUpdate(Test test) {
+        return TestValidator.checkNullField(test)
                 && validateQuestion(test);
     }
 

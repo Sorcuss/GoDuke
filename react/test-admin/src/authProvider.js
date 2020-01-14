@@ -56,6 +56,9 @@ const authProvider = {
         const logged =  await Auth.currentAuthenticatedUser();
         return logged.getSignInUserSession().getAccessToken().payload["cognito:groups"]
     },
+    getUserMail: () => JSON.parse(localStorage.getItem('CognitoIdentityServiceProvider.7glfkpchuh2db75ehftqimukeu.f7784e4c-f691-47cb-9250-a1b7bccf92eb.userData')).UserAttributes[3].Value,
+    getUserInfo: async () => Auth.currentUserInfo(),
+    getHeader: async () =>  `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`
 };
 
 export default authProvider;

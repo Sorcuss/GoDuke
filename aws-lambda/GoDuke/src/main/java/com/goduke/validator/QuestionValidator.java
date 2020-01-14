@@ -13,12 +13,12 @@ public class QuestionValidator {
     }
 
     private boolean checkType(String type){
-        return type.equals("open") || type.equals("close") || type.equals("numerical");
+        return type.equals("O") || type.equals("W") || type.equals("L");
 
     }
 
     private boolean checkOptions(List<String> options, String type){
-        if(!type.equals("close")){
+        if(!type.equals("W")){
             if(options != null) {
                 return options.size() == 0;
             }

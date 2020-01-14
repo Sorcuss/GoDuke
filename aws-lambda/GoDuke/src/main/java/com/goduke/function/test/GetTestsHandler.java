@@ -14,5 +14,5 @@ public class GetTestsHandler implements RequestHandler<Test, List<Test>> {
     @Override
     public List<Test> handleRequest(Test input, Context context) {
         return dynamoDBMapper.scan(Test.class, new DynamoDBScanExpression());
-    }
+}
 }

@@ -6,6 +6,7 @@ import com.amazonaws.services.dynamodbv2.xspec.L;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.converter.CandidatesTypeConverter;
+import com.goduke.function.translate.QuestionTranslator;
 import com.goduke.model.*;
 import com.goduke.validator.TestValidator;
 import org.w3c.dom.css.Rect;
@@ -13,15 +14,19 @@ import org.w3c.dom.css.Rect;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddTest implements RequestHandler<Test, String> {
+public class AddTest implements RequestHandler<Test, Test> {
     DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
 
     @Override
-    public String handleRequest(Test input, Context context) {
+    public Test handleRequest(Test input, Context context) {
         if(!TestValidator.validate(input)){
             throw new RuntimeException("test have invalid data");
         }
+        if(input.getLanguages().size() == 2){
+            QuestionTranslator questionTranslator = new QuestionTranslator(input);
+            questionTranslator.translate();
+        }
         dynamoDBMapper.save(input);
-        return "Success";
+        return input;
     }
 }
