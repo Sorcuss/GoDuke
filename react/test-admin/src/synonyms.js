@@ -6,13 +6,25 @@ function takes parameter iput, which should look like this
 }
 and return Array of strings stringified to JSON
 */
-function getSynonyms(input){
-    let result = [];
-    const inputObj = parseAndExtractTranslations(input);
-    if (inputObj !== null || inputObj.translations !== null){
+export function checkSynonyms(text){
+    let result = getSynonyms(text, "en");
+    if(!Array.isArray(result)){
+        result = getSynonyms(text,"pl");
+    }
+    if (!Array.isArray(result)){
+        return [];
+    } else {
+        return result;
+    }
+}
+
+function getSynonyms(text, lang){
+    let result = undefined;
+    const inputObj = extractTranslations(text, lang);
+    if (inputObj !== null && inputObj.translations !== undefined){
         let i = -1;
         while(inputObj.translations.tr[++i] !== undefined){
-            const output = request(inputObj.translations.tr[i].text, "ru-" + inputObj.lang);
+            const output = request(inputObj.translations.tr[i].text, inputObj.lang);
             const syn = extractSyn(output, inputObj.word);
             if (syn != null){
                 result = syn;
@@ -20,23 +32,22 @@ function getSynonyms(input){
             }
         }
     }
-    return JSON.stringify(result);
+    return result;
 }
 
-function parseAndExtractTranslations(input){
-    const inputObj = JSON.parse(input);
-    if(inputObj.text === undefined || inputObj.lang === undefined){
+function extractTranslations(text, lang){
+    if(text === undefined || lang === undefined){
         return null;
     }
-    let word = inputObj.text;
+    let word = text;
     word = word.trim().split(" ")[0];
-    const response = request(word, inputObj.lang + "-ru");
+    const response = request(word, lang==="en"?"en-en":"pl-ru");
     if(response == null){
         return null;
     }
     return {translations:JSON.parse(response).def[0],
         word: word,
-        lang: inputObj.lang};
+        lang:lang==="en"?"en-en":"ru-pl"};
 }
 
 function request(word, lang){
@@ -56,9 +67,12 @@ function request(word, lang){
 }
 
 function extractSyn(input, originalWord) {
+    const data = JSON.parse(input).def[0];
+    if(data === undefined)
+        return undefined;
     const tr = JSON.parse(input).def[0].tr;
     let tab2;
-    let result = null;
+    let result = undefined;
     for (let j = 0; j < tr.length; j++) {
         if (tr[j].text === originalWord && tr[j].syn !== undefined) {
             tab2 = tr[j].syn;
