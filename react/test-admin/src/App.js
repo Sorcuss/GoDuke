@@ -8,9 +8,8 @@ import {CandidateCreate, CandidatesList} from "./candidates";
 import {TestCreate, TestsList} from "./tests";
 import TestingPane from "./testing";
 import { createMuiTheme } from '@material-ui/core/styles';
-import indigo from '@material-ui/core/colors/indigo';
-import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
+import SynonymTooltip from "./synonymTooltip";
 
 const theme = createMuiTheme({
     palette: {
@@ -27,21 +26,24 @@ const theme = createMuiTheme({
 });
 
 const App = () => (
-    <Admin
-        theme={theme}
-        dashboard={TestingPane}
-        dataProvider={resourceProvider}
-        authProvider={authProvider}
-    >
-        {permissions => [
-            permissions.includes('recruiters')
-                ?  <Resource name="candidates" list={CandidatesList}  create={CandidateCreate} icon={UserIcon}/>
-                : null,
-            permissions.includes('recruiters')
-                ?  <Resource name="tests" list={TestsList} create={TestCreate} edit={EditGuesser}  icon={ListIcon}/>
-                : null,
-         <Resource name="answers"/>]}
-    </Admin>
+    <div>
+        <Admin
+            theme={theme}
+            dashboard={TestingPane}
+            dataProvider={resourceProvider}
+            authProvider={authProvider}
+        >
+            {permissions => [
+                permissions.includes('recruiters')
+                    ?  <Resource name="candidates" list={CandidatesList}  create={CandidateCreate} icon={UserIcon}/>
+                    : null,
+                permissions.includes('recruiters')
+                    ?  <Resource name="tests" list={TestsList} create={TestCreate} edit={EditGuesser}  icon={ListIcon}/>
+                    : null,
+                <Resource name="answers"/>]}
+        </Admin>
+        <SynonymTooltip/>
+    </div>
 );
 
 export default App;
