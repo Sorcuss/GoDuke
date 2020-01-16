@@ -1,5 +1,16 @@
 import { Auth } from "aws-amplify";
+import {func} from "prop-types";
 
+
+function getCookie(name) {
+    var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    return v ? v[2] : null;
+}
+
+function checkSession() {
+    console.log(getCookie("session"))
+    return getCookie("session") && Date.parse(getCookie("session")) < Date.now() ;
+}
 
 const authProvider = {
     login: async ({ username, password }) => {
@@ -10,8 +21,11 @@ const authProvider = {
             if (user.challengeName === 'NEW_PASSWORD_REQUIRED'){
                 await Auth.completeNewPassword(user, password,{name})
             }
-            // const logged =  await Auth.currentAuthenticatedUser();
-            // console.log(logged.getSignInUserSession().getAccessToken().payload["cognito:groups"])
+            const now = new Date();
+            const time = now.getTime();
+            const expireTime = time + 600000;
+            now.setTime(expireTime);
+            document.cookie = "session=" +  now.toISOString()
             document.location.href="/";
         } catch (err) {
             if (err.code === 'UserNotConfirmedException') {
@@ -53,6 +67,9 @@ const authProvider = {
         return Promise.resolve();
     },
     getPermissions: async () => {
+        if(checkSession()){
+          Auth.signOut();
+        }
         const logged =  await Auth.currentAuthenticatedUser();
         return logged.getSignInUserSession().getAccessToken().payload["cognito:groups"]
     },
