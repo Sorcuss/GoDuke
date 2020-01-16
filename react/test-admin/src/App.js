@@ -38,11 +38,13 @@ const App = () => (
                     ?  <Resource name="candidates" list={CandidatesList}  create={CandidateCreate} icon={UserIcon}/>
                     : null,
                 permissions.includes('recruiters')
-                    ?  <Resource name="tests" list={TestsList} create={TestCreate} edit={EditGuesser}  icon={ListIcon}/>
+                    ?          <Resource name="tests" list={TestsList} create={TestCreate} edit={EditGuesser}  icon={ListIcon}/>
+                    : null,permissions.includes('recruiters')
+                    ?          <SynonymTooltip/>
                     : null,
                 <Resource name="answers"/>]}
         </Admin>
-        <SynonymTooltip/>
+
     </div>
 );
 
