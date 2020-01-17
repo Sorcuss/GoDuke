@@ -39,7 +39,10 @@ public class GetCandidateTests implements RequestHandler<Candidate, List<TestWra
 
     private List<Test> getCandidatesTest(String id) {
         return dynamoDBMapper.scan(Test.class, new DynamoDBScanExpression()).stream()
-                .filter(test -> test.getCandidates().contains(id))
+                .filter(test -> {
+                    List<String> candidates = test.getCandidates();
+                    return candidates != null && candidates.contains(id);
+                })
                 .collect(Collectors.toList());
     }
 
