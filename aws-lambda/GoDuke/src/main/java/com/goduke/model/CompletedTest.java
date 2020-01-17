@@ -4,11 +4,13 @@ public class CompletedTest extends TestWrapper {
     private String name;
     private boolean isRated;
     private int score;
+    private int maxScore;
 
-    public CompletedTest(String name, int score, boolean isRated) {
+    public CompletedTest(String name, int score, boolean isRated, int maxScore) {
         this.name = name;
         this.score = score;
         this.isRated = isRated;
+        this.maxScore = maxScore;
     }
 
     public String getName() {
@@ -33,5 +35,13 @@ public class CompletedTest extends TestWrapper {
 
     public void setRated(boolean rated) {
         isRated = rated;
+    }
+
+    public int getMaxScore() {
+        return maxScore;
+    }
+
+    public void setMaxScore(int maxScore) {
+        this.maxScore = maxScore;
     }
 }
