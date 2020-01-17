@@ -87,6 +87,7 @@ export default {
             headers: new Map()
         }).then(({ json }) => {
             if(json.languages){
+                console.log(json)
                 document.location.href="/#/tests";
             }else{
                 document.location.href="/#/candidates";
