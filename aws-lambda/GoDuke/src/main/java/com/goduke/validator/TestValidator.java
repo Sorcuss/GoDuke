@@ -57,11 +57,11 @@ public class TestValidator {
     }
 
     private static boolean questionNumberValidation(List<Question> questions){
-        List<Question> enQuestions = questions.stream()
+//        List<Question> enQuestions = questions.stream()
 //                .filter(question -> question.getLanguage().equals("en"))
 //                .collect(Collectors.toList());
 //
 //        List<Question> plQuestions =
-//        return false;
+        return false;
     }
 }
