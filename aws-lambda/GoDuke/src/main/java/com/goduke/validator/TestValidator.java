@@ -8,6 +8,7 @@ import com.goduke.model.Question;
 import com.goduke.model.Test;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TestValidator {
     private static DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
@@ -55,4 +56,12 @@ public class TestValidator {
                 && test.getRecruiter() != null;
     }
 
+    private static boolean questionNumberValidation(List<Question> questions){
+        List<Question> enQuestions = questions.stream()
+//                .filter(question -> question.getLanguage().equals("en"))
+//                .collect(Collectors.toList());
+//
+//        List<Question> plQuestions =
+//        return false;
+    }
 }

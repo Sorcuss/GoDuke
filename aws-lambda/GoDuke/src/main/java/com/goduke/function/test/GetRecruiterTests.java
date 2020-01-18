@@ -16,7 +16,10 @@ public class GetRecruiterTests implements RequestHandler<Recruiter, List<Test>> 
 
     @Override
     public List<Test> handleRequest(Recruiter input, Context context) {
-        return dynamoDBMapper.scan(Test.class, getScanExpression(input.getId()));
+        if(input.getEmail() == null || input.getEmail().equals("")){
+            throw new RuntimeException("Email is empty");
+        }
+        return dynamoDBMapper.scan(Test.class, getScanExpression(input.getEmail()));
     }
 
     private DynamoDBScanExpression getScanExpression(String recruiter){
