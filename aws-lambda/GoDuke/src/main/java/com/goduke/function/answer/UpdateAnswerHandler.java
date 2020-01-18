@@ -5,6 +5,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.model.Answer;
+import com.goduke.validator.AnswerValidator;
 
 public class UpdateAnswerHandler implements RequestHandler<Answer, String> {
     private DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
@@ -13,6 +14,9 @@ public class UpdateAnswerHandler implements RequestHandler<Answer, String> {
     public String handleRequest(Answer input, Context context) {
         if(input.getId() == null){
             throw new RuntimeException("error null id");
+        }
+        if(!AnswerValidator.validate(input)){
+            throw new RuntimeException("answers has invalid data");
         }
         Answer answer = dynamoDBMapper.load(Answer.class, input.getId());
         if(answer == null){

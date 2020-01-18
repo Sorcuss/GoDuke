@@ -14,7 +14,7 @@ public class UpdateTest implements RequestHandler<Test, Test> {
     @Override
     public Test handleRequest(Test input, Context context) {
         if(!TestValidator.validate(input)){
-            throw new RuntimeException("test have invalid data");
+            throw new RuntimeException("test has invalid data");
         }
         Test testToUpdate = dynamoDBMapper.load(Test.class, input.getId());
         if(testToUpdate == null){
