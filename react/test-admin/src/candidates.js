@@ -12,7 +12,7 @@ export const CandidateCreate = props => (
 );
 
 export const CandidatesList = (props) => (
-    <List  bulkActionButtons={false} {...props}>
+    <List pagination={false} exporter={false}  bulkActionButtons={false} {...props}>
         <Datagrid>
             <TextField source="id" sortable={false}/>
             <TextField source="mail" sortable={false}/>
