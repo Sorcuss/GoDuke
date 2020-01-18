@@ -83,7 +83,12 @@ export default function RecruiterTesting(props) {
          });
          setTest(response.data);
          setTestCandidateAnswer(answers);
-         setQuestions(response.data.questions)
+         if(response.data.languages.length > 1){
+             setQuestions(response.data.questions.slice(0, (response.data.questions.length / 2)))
+         }else{
+             setQuestions(response.data.questions)
+         }
+
          setAnswer(answers.answers)
          setRate(new Array(answers.answers.length).fill(false))
     };
@@ -117,28 +122,71 @@ export default function RecruiterTesting(props) {
         )
         document.location.href="/";
     }
-
-    const handleCsvUpload = async (data) => {
+    const handleCsvUploadExampleData = async (data) => {
         const questions = []
+        const verifiedQuestions = []
+        if(data){
+            data.forEach((q) => {
+                if(q[0]){
+                    questions.push(q[0].split(";"));
+                }
+            })
+            for(const q of questions){
+                if(!q[3] || q[3] === ""){
+                    alert("Error in column 3. Question field cannot be empty.");
+                    verifiedQuestions.length = 0;
+                    document.location.href="/";
+                    break;
+                }else if(!q[1] || q[1] === ""){
+                    alert("Answer options cannot be empty.");
+                    verifiedQuestions.length = 0;
+                    document.location.href="/";
+                    break;
+                }else if((q[1] === "O" || q[1] === "L") && q[4] != "|"){
+                    alert("Matching delimeter (|) missing");
+                    verifiedQuestions.length = 0;
+                    document.location.href="/";
+                    break;
+                } else if(q[1] === "W" && parseInt(q[4]) <= 0){
+                    alert("Number of answer options must be at least one.");
+                    verifiedQuestions.length = 0;
+                    document.location.href="/";
+                    break;
+                }else if(!testName || testName === ""){
+                    alert("Test name is empty.");
+                    verifiedQuestions.length = 0;
+                    document.location.href="/";
+                    break;
+                }else{
+                    verifiedQuestions.push(q);
+                }
+            }
+        if(verifiedQuestions.length === 0){
+            return ;
+        }
+            console.log(verifiedQuestions);
+        }
+        const requestQuestions = []
         let en = false
         let pl = false
-        data.forEach((x) => {
+        verifiedQuestions.forEach((x) => {
             if(x[2] == "pl"){
                 pl = true
             }else{
                 en=true
             }
             if(x[4] != "|") {
-                questions.push({
+                const options = x.slice(5, 5 + parseInt(x[4]))
+                requestQuestions.push({
                     type: x[1],
-                    language: x[2],
+                    language: x[2].toLowerCase(),
                     question: x[3],
-                    options: x[4]
+                    options: options
                 })
             }else{
-                questions.push({
+                requestQuestions.push({
                     type: x[1],
-                    language: x[2],
+                    language: x[2].toLowerCase(),
                     question: x[3]
                 })
             }
@@ -149,9 +197,9 @@ export default function RecruiterTesting(props) {
         const request = {
             languages: languages,
             testName: testName,
-            questions: questions,
+            questions: requestQuestions,
             recruiter: props.id.attributes.email
-        }
+        };
         const response = await axios.post(
             'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/tests',
             request,{
@@ -161,11 +209,12 @@ export default function RecruiterTesting(props) {
                 }
             }
         )
-        alert(response)
-        console.log(request)
+        if(response.status === 200){
+            alert("Success!");
+        }else{
+            alert("Unknown error!");
+        }
         document.location.href="/#/tests";
-        // console.log(data);
-        // console.log(testName);
     }
 
 
@@ -241,7 +290,7 @@ export default function RecruiterTesting(props) {
                             <TableHead>
                                 <TableRow>
                                     <TableCell></TableCell>
-                                    <TableCell>Import</TableCell>
+                                    <TableCell>Import CSV</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -254,7 +303,7 @@ export default function RecruiterTesting(props) {
                                         />
                                     </TableCell>
                                     <TableCell>
-                                        <CSVReader onFileLoaded={data => handleCsvUpload(data)} />
+                                        <CSVReader onFileLoaded={data => handleCsvUploadExampleData(data)} />
                                     </TableCell>
                                 </TableRow>
                             </TableBody>
@@ -265,25 +314,20 @@ export default function RecruiterTesting(props) {
                 <Table>
                     <TableBody>
                     {props.tests.map((t) => {
-                        const tab = []
+                        const data = []
                         t.questions.map((x, i) => {
-                            const secondTab = []
-                            secondTab.push(i)
-                            secondTab.push(x.type)
-                            secondTab.push(x.language)
-                            secondTab.push(x.question)
+                            const q = []
+                            q.push("\"" + (i + 1))
+                            q.push(x.type)
+                            q.push(x.language)
+                            q.push(x.question)
                             if(x.options && x.options.length > 0){
-                                const thirdTab = []
-                                x.options.map((x) => {
-                                    thirdTab.push(x)
-                                })
-                                secondTab.push(thirdTab)
-                            }else secondTab.push("|");
-                            secondTab.push("")
-                            tab.push(secondTab)
+                                q.push(x.options.length)
+                                q.push(x.options.join(";"))
+                            }else q.push("|");
+                            q.push("\"")
+                            data.push(q)
                         })
-                        const data = tab;
-                        console.log(data)
                         return(
                             <TableRow>
                                 <TableCell>{t.testName}</TableCell>
@@ -298,7 +342,6 @@ export default function RecruiterTesting(props) {
                     </TableBody>
                 </Table>
             </TabPanel>
-
 <Dialog fullScreen open={open} onClose={handleCloseDialog}>
                 <AppBar className={classes.appBar}>
                     <Toolbar>
@@ -321,7 +364,6 @@ export default function RecruiterTesting(props) {
                         </TableHead>
                         <TableBody>
                             {questions.map((t, i) => {
-                                if(questions.length / 2 <= i) return
                                 return (
                                     <TableRow>
                                         <TableCell>{t.question}</TableCell>

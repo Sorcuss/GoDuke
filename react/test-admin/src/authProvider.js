@@ -8,7 +8,6 @@ function getCookie(name) {
 }
 
 function checkSession() {
-    console.log(getCookie("session"))
     return getCookie("session") && Date.parse(getCookie("session")) < Date.now() ;
 }
 

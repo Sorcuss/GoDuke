@@ -2,10 +2,6 @@ import React from "react";
 import authProvider from "./authProvider";
 import CandidateTesting from "./candidateTesting";
 import RecruiterTesting from "./recruiterTesting";
-import LinearProgress from '@material-ui/core/LinearProgress';
-
-
-
 
 class TestingPane extends React.Component {
 
@@ -18,7 +14,7 @@ class TestingPane extends React.Component {
         const id = await authProvider.getUserInfo()
         this.setState({id})
         if(auth == "recruiters"){
-            const url = 'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/answers';
+            const url = 'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/answers/recruiter/' + id.attributes.email;
             await fetch(url, {
                 headers: {
                     'Authorization': await authProvider.getHeader()
@@ -26,7 +22,7 @@ class TestingPane extends React.Component {
             })
                 .then(response => response.json())
                 .then(answers => this.setState({ answers }));
-            const url2 = 'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/tests';
+            const url2 = 'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/tests/recruiter/' + id.attributes.email;
             await fetch(url2,{
                 headers: {
                     'Authorization': await authProvider.getHeader()
@@ -47,9 +43,6 @@ class TestingPane extends React.Component {
         }
         this.setState({ auth });
     }
-
-
-
     render() {
         const auth = this.state.auth;
         const tests = this.state.tests;
