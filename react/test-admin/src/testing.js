@@ -2,6 +2,7 @@ import React from "react";
 import authProvider from "./authProvider";
 import CandidateTesting from "./candidateTesting";
 import RecruiterTesting from "./recruiterTesting";
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 
 
@@ -65,7 +66,7 @@ class TestingPane extends React.Component {
         }
         return (
             <>
-           {data}
+                {this.state.auth ? data : <div><h3>Loading...</h3><span>Thanks for being patient</span></div>}
            </>
         )
     }
