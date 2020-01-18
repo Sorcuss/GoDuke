@@ -1,5 +1,7 @@
 package com.goduke.model;
 
+import com.goduke.function.test.TestWrapper;
+
 public class CompletedTest extends TestWrapper {
     private String name;
     private boolean isRated;
