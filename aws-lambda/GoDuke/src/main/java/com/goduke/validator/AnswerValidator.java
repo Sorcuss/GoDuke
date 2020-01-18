@@ -1,4 +1,4 @@
-package com.goduke.model.answer;
+package com.goduke.validator;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;

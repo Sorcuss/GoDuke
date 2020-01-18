@@ -1,4 +1,6 @@
-package com.goduke.model.test;
+package com.goduke.validator;
+
+import com.goduke.model.test.Question;
 
 import java.util.List;
 

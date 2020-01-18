@@ -1,10 +1,11 @@
-package com.goduke.model.test;
+package com.goduke.validator;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-
+import com.goduke.model.test.Question;
+import com.goduke.model.test.Test;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
