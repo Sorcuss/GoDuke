@@ -9,3 +9,6 @@ production:
       - .*/integrationtests/.*\.java
       - .*TestFile\.java
       - /aws-lambda/GoDuke/src/main/java/com/goduke/model/.*
+test:
+    include:
+      - /aws-lambda/GoDuke/src/main/java/com/goduke/test/.*\.java
