@@ -3,8 +3,13 @@ package com.goduke.test;
 import com.amazonaws.services.lambda.runtime.ClientContext;
 import com.amazonaws.services.lambda.runtime.CognitoIdentity;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
+import com.goduke.function.answer.GetAnswerHandler;
+import com.goduke.function.answer.GetAnswersHandler;
+import com.goduke.function.test.GetRecruiterTests;
 import com.goduke.function.test.GetTestsHandler;
 import com.amazonaws.services.lambda.runtime.Context;
+import com.goduke.model.Answer;
+import com.goduke.model.Recruiter;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -77,6 +82,26 @@ public class GetTests {
         Context ctx = createContext();
         List<com.goduke.model.Test> tests = handler.handleRequest(new com.goduke.model.Test(), ctx);
         assertTrue(tests.size() > 0);
+
+    }
+    @Test
+    public void testGetRecruiterTests() {
+        GetRecruiterTests getRecruiterTests = new GetRecruiterTests();
+        Context ctx = createContext();
+        Recruiter recruiter = new Recruiter();
+        recruiter.setEmail("admin@example.com");
+        List<com.goduke.model.Test> tests = getRecruiterTests.handleRequest(recruiter, ctx);
+        assertTrue(tests.size() > 0);
+
+    }
+    @Test
+    public void testGetAnsswer() {
+        GetAnswersHandler getAnswersHandler = new GetAnswersHandler();
+        Context ctx = createContext();
+        List<Answer> answers = getAnswersHandler.handleRequest(new Answer(), ctx);
+        GetAnswerHandler getAnswerHandler = new GetAnswerHandler();
+        Answer answer = getAnswerHandler.handleRequest(answers.get(0), ctx);
+        assertTrue(answer != null);
 
     }
 }
