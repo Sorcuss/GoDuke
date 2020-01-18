@@ -24,8 +24,8 @@ public class TestValidator {
             return false;
         }
         List<Test> objects = dynamoDBMapper.scan(Test.class, TestValidator.getScanExpression(name));
-        if(id != null)
-            if(objects.get(0).getId().equals(id)) return true;
+        if(objects.size() != 0 && id != null)
+              if(objects.get(0).getId().equals(id)) return true;
         return objects.size() == 0;
     }
 
