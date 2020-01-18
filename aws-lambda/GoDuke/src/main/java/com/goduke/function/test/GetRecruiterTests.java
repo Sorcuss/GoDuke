@@ -5,21 +5,20 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.goduke.model.Recruiter;
 import com.goduke.model.Test;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class GetRecruiterTests implements RequestHandler<Recruiter, List<Test>> {
+public class GetRecruiterTests implements RequestHandler<String, List<Test>> {
     DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
 
     @Override
-    public List<Test> handleRequest(Recruiter input, Context context) {
-        if(input.getEmail() == null || input.getEmail().equals("")){
+    public List<Test> handleRequest(String input, Context context) {
+        if(input == null || input.equals("")){
             throw new RuntimeException("Email is empty");
         }
-        return dynamoDBMapper.scan(Test.class, getScanExpression(input.getEmail()));
+        return dynamoDBMapper.scan(Test.class, getScanExpression(input));
     }
 
     private DynamoDBScanExpression getScanExpression(String recruiter){

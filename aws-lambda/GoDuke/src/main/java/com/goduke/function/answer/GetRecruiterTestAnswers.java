@@ -3,23 +3,23 @@ package com.goduke.function.answer;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
-import com.amazonaws.services.dynamodbv2.xspec.L;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.model.Answer;
-import com.goduke.model.Recruiter;
 import com.goduke.model.Test;
-;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GetRecruiterTestAnswers implements RequestHandler<Recruiter, List<Answer>> {
+;
+
+public class GetRecruiterTestAnswers implements RequestHandler<String, List<Answer>> {
     private DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
     @Override
-    public List<Answer> handleRequest(Recruiter input, Context context) {
+    public List<Answer> handleRequest(String input, Context context) {
         List<Answer> answers =  dynamoDBMapper.scan(Answer.class, new DynamoDBScanExpression());
-        List<Test> tests = getRecruiterTest(input.getEmail());
+        List<Test> tests = getRecruiterTest(input);
         List<Answer> result = new ArrayList<>();
         for(Answer answer :answers){
             for(Test test : tests){

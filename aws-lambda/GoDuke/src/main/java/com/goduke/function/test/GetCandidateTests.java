@@ -13,14 +13,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GetCandidateTests implements RequestHandler<Candidate, List<TestWrapper>> {
+public class GetCandidateTests implements RequestHandler<String, List<TestWrapper>> {
     DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
 
     @Override
-    public List<TestWrapper> handleRequest(Candidate input, Context context) {
+    public List<TestWrapper> handleRequest(String input, Context context) {
         List<TestWrapper> result = new ArrayList<>();
-        List<Test> candidatesTest = getCandidatesTest(input.getId());
-        List<Answer> candidateAnswers = getCandidateAnswers(input.getId());
+        List<Test> candidatesTest = getCandidatesTest(input);
+        List<Answer> candidateAnswers = getCandidateAnswers(input);
         for(Test test: candidatesTest){
             Answer closedTest = candidateAnswers.stream().filter(answer -> answer.getTest().getId().equals(test.getId())).findFirst().orElse(null);
             if(closedTest != null){

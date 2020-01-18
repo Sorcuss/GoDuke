@@ -1,9 +1,7 @@
 package com.goduke.model;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
-import com.goduke.converter.CandidatesTypeConverter;
 import com.goduke.converter.QuestionsTypeConverter;
-import com.goduke.converter.RecruiterTypeConverter;
 
 import java.io.Serializable;
 import java.util.List;
