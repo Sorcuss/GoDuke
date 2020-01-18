@@ -13,18 +13,18 @@ public class UpdateTest implements RequestHandler<Test, Test> {
     DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(AmazonDynamoDBClientBuilder.defaultClient());
     @Override
     public Test handleRequest(Test input, Context context) {
-        if(!TestValidator.validate(input)){
-            throw new RuntimeException("test has invalid data");
-        }
         Test testToUpdate = dynamoDBMapper.load(Test.class, input.getId());
         if(testToUpdate == null){
             throw new RuntimeException("test does not exist");
         }
         if(testToUpdate.getLanguages().size() == 1) {
-            if (input.getLanguages().size() == 2) {
+            if (input.getLanguages().size() == 2 && !TestValidator.questionNumberValidation(input)) {
                 QuestionTranslator questionTranslator = new QuestionTranslator(input);
                 questionTranslator.translate();
             }
+        }
+        if(!TestValidator.validate(input)){
+            throw new RuntimeException("test has invalid data");
         }
         dynamoDBMapper.save(input);
         return input;

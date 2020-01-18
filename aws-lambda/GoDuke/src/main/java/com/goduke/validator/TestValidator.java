@@ -58,7 +58,7 @@ public class TestValidator {
                 && test.getRecruiter() != null;
     }
 
-    private static boolean questionNumberValidation(Test test) {
+    public static boolean questionNumberValidation(Test test) {
         List<Question> enQuestions = test.getQuestions().stream()
                 .filter(question -> question.getLanguage().equals("en"))
                 .collect(Collectors.toList());
