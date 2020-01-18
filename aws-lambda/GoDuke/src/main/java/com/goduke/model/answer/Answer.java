@@ -1,7 +1,8 @@
-package com.goduke.model;
+package com.goduke.model.answer;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import com.goduke.converter.TestTypeConverter;
+import com.goduke.model.test.Test;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,11 +1,8 @@
 package com.goduke.converter;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverted;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverter;
-import com.goduke.model.Test;
+import com.goduke.model.test.Test;
 import com.google.gson.Gson;
-
-import java.lang.annotation.Annotation;
 
 public class TestTypeConverter implements DynamoDBTypeConverter<String, Test> {
 

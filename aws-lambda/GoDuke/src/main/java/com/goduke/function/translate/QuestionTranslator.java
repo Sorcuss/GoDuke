@@ -1,8 +1,7 @@
 package com.goduke.function.translate;
 
-import com.goduke.model.Question;
-import com.goduke.model.Test;
-import com.goduke.model.TranslateModel;
+import com.goduke.model.test.Question;
+import com.goduke.model.test.Test;
 import com.google.gson.Gson;
 
 import java.io.IOException;

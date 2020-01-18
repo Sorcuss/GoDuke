@@ -4,9 +4,7 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.goduke.model.Answer;
-import com.goduke.model.Test;
-import com.sun.org.apache.xpath.internal.objects.XNull;
+import com.goduke.model.answer.Answer;
 
 import java.util.HashMap;
 import java.util.List;

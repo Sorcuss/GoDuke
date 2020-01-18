@@ -1,4 +1,4 @@
-package com.goduke.model;
+package com.goduke.model.test;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import com.goduke.converter.QuestionsTypeConverter;

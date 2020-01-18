@@ -1,7 +1,7 @@
 package com.goduke.converter;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverter;
-import com.goduke.model.Question;
+import com.goduke.model.test.Question;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

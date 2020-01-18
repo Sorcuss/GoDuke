@@ -8,7 +8,7 @@ import com.goduke.function.answer.GetAnswersHandler;
 import com.goduke.function.test.GetRecruiterTests;
 import com.goduke.function.test.GetTestsHandler;
 import com.amazonaws.services.lambda.runtime.Context;
-import com.goduke.model.Answer;
+import com.goduke.model.answer.Answer;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -79,7 +79,7 @@ public class GetTests {
     public void testGetTests() {
         GetTestsHandler handler = new GetTestsHandler();
         Context ctx = createContext();
-        List<com.goduke.model.Test> tests = handler.handleRequest(new com.goduke.model.Test(), ctx);
+        List<com.goduke.model.test.Test> tests = handler.handleRequest(new com.goduke.model.test.Test(), ctx);
         assertTrue(tests.size() > 0);
 
     }
@@ -87,7 +87,7 @@ public class GetTests {
     public void testGetRecruiterTests() {
         GetRecruiterTests getRecruiterTests = new GetRecruiterTests();
         Context ctx = createContext();
-        List<com.goduke.model.Test> tests = getRecruiterTests.handleRequest("admin@example.com", ctx);
+        List<com.goduke.model.test.Test> tests = getRecruiterTests.handleRequest("admin@example.com", ctx);
         assertTrue(tests.size() > 0);
 
     }

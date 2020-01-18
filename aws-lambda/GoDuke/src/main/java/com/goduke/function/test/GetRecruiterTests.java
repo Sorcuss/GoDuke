@@ -5,7 +5,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.goduke.model.Test;
+import com.goduke.model.test.Test;
 
 import java.util.HashMap;
 import java.util.List;

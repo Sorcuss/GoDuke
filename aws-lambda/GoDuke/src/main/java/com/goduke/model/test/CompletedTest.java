@@ -1,4 +1,4 @@
-package com.goduke.model;
+package com.goduke.model.test;
 
 import com.goduke.function.test.TestWrapper;
 

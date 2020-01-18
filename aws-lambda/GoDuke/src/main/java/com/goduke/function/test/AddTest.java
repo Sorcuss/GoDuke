@@ -5,7 +5,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.function.translate.QuestionTranslator;
-import com.goduke.model.*;
+import com.goduke.model.test.Test;
 import com.goduke.validator.TestValidator;
 
 
