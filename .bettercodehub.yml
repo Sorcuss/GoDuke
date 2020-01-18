@@ -6,7 +6,6 @@ exclude:
 - /react/.*
 production:
     exclude:
-      - /aws-lambda/GoDuke/src/main/java/com/goduke/validator/.*
       - /aws-lambda/GoDuke/src/main/java/com/goduke/model/.*
 test:
     include:
