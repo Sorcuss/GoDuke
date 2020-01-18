@@ -57,6 +57,7 @@ export default function RecruiterTesting(props) {
     const [value, setValue] = React.useState(0);
     const [open, setOpen] = React.useState(false);
     const [testValue, setTest] = React.useState({});
+    const [candidateAnswer, setTestCandidateAnswer] = React.useState({});
     const [testName, setTestName] = React.useState("");
     const [questions, setQuestions] = React.useState([]);
     const [rates, setRate] = React.useState([]);
@@ -81,6 +82,7 @@ export default function RecruiterTesting(props) {
              }
          });
          setTest(response.data);
+         setTestCandidateAnswer(answers);
          setQuestions(response.data.questions)
          setAnswer(answers.answers)
          setRate(new Array(answers.answers.length).fill(false))
@@ -96,12 +98,11 @@ export default function RecruiterTesting(props) {
     };
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const answer = props.answers[0];
         const request = {
-            id: answer.id,
-            test: answer.test,
-            candidate: answer.candidate,
-            answers: answer.answers,
+            id: candidateAnswer.id,
+            test: candidateAnswer.test,
+            candidate: candidateAnswer.candidate,
+            answers: candidateAnswer.answers,
             rates: rates,
             rated: true
         }

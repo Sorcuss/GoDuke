@@ -127,9 +127,9 @@ export default function CandidateTesting(props) {
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Test name</TableCell>
-                            <TableCell>Recruiter mail</TableCell>
-                            <TableCell>Try</TableCell>
+                            <TableCell align="center">Test name</TableCell>
+                            <TableCell align="center">Recruiter mail</TableCell>
+                            <TableCell align="center">Try</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -168,7 +168,7 @@ export default function CandidateTesting(props) {
                                 <TableRow>
                                     <TableCell>{test.name}</TableCell>
                                     <TableCell>{test.rated ? "Yes" : "No"}</TableCell>
-                                    <TableCell>{test.rated ? test.score + "/" + 10 : "N/A"}</TableCell>
+                                    <TableCell>{test.rated ? test.score + "/" + test.maxScore : "N/A"}</TableCell>
                                 </TableRow>
                             )
                         })}
