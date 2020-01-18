@@ -6,7 +6,7 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.goduke.function.translate.QuestionTranslator;
 import com.goduke.model.test.Test;
-import com.goduke.validator.TestValidator;
+import com.goduke.model.validator.TestValidator;
 
 
 public class AddTest implements RequestHandler<Test, Test> {

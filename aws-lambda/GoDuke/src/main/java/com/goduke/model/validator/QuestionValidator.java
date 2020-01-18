@@ -1,4 +1,4 @@
-package com.goduke.validator;
+package com.goduke.model.validator;
 
 import com.goduke.model.test.Question;
 
