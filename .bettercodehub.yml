@@ -4,3 +4,8 @@ languages:
 exclude:
 - /node_modules/.*
 - /react/.*
+production:
+    exclude:
+	- .*/model/.*\.java
+	- .*/validator/.*\.java
+	- .*/translate/.*\.java
