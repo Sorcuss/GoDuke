@@ -1,26 +1,19 @@
 import { fetchUtils } from 'react-admin';
 import authProvider from "./authProvider";
-// import { stringify } from 'query-string';
 
 const apiUrl = 'https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1';
 const httpClient = async (url, options = {}) => {
     options.headers.set('Authorization', await authProvider.getHeader());
     return fetchUtils.fetchJson(url, options);
 }
-
 export default {
-    getList: (resource, params) => {
-        // const { page, perPage } = params.pagination;
-        // const { field, order } = params.sort;
-        // const query = {
-        //     sort: JSON.stringify([field, order]),
-        //     range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
-        //     filter: JSON.stringify(params.filter),
-        // };
-        // const url = `${apiUrl}/${resource}?${stringify(query)}`;
+    getList: async (resource, params) => {
+        if(resource == "tests"){
+            const auth = await authProvider.getUserMail();
+            const email = await auth.attributes.email
+            resource = resource + "/recruiter/" + email ;
+        }
         const url = `${apiUrl}/${resource}`;
-
-
         const  result = httpClient(url, {headers: new Map()}).then(({ headers, json }) => (
             {
             data: json,
@@ -67,7 +60,13 @@ export default {
             method: 'PUT',
             body: JSON.stringify(params.data),
             headers: new Map()
-        }).then(({ json }) => ({ data: json })),
+        }).then(({ json }) => {
+            if(json.errorMessage){
+                alert(json.errorMessage)
+                return ;
+            }
+            return { data: json}
+        }),
 
     // updateMany: (resource, params) => {
     //     const query = {
@@ -86,11 +85,10 @@ export default {
             body: JSON.stringify(params.data),
             headers: new Map()
         }).then(({ json }) => {
-            if(json.languages){
-                console.log(json)
+            if(resource === "tests"){
                 document.location.href="/#/tests";
             }else{
-                document.location.href="/#/candidates";
+                document.location.href="/";
             }
         })},
 
