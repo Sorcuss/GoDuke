@@ -32,14 +32,16 @@ public class TestValidator {
     public static boolean validate(Test test) {
         return TestValidator.checkNullField(test)
                 && TestValidator.checkUniqueName(test.getTestName(), test.getId())
-                && validateQuestion(test);
+                && validateQuestion(test)
+                && languagesValidation(test)
+                && questionNumberValidation(test);
     }
     public static boolean validateUpdate(Test test) {
         return TestValidator.checkNullField(test)
                 && validateQuestion(test);
     }
 
-    public static boolean validateQuestion(Test test){
+    private static boolean validateQuestion(Test test){
         List<Question> questions = test.getQuestions();
         for(Question question : questions){
             if(!QuestionValidator.validate(question)){
@@ -56,12 +58,30 @@ public class TestValidator {
                 && test.getRecruiter() != null;
     }
 
-    private static boolean questionNumberValidation(List<Question> questions){
-//        List<Question> enQuestions = questions.stream()
-//                .filter(question -> question.getLanguage().equals("en"))
-//                .collect(Collectors.toList());
-//
-//        List<Question> plQuestions =
-        return false;
+    private static boolean questionNumberValidation(Test test) {
+        List<Question> enQuestions = test.getQuestions().stream()
+                .filter(question -> question.getLanguage().equals("en"))
+                .collect(Collectors.toList());
+        List<Question> plQuestions = test.getQuestions().stream()
+                .filter(question -> question.getLanguage().equals("pl"))
+                .collect(Collectors.toList());
+        if (test.getLanguages().size() == 2) {
+            return enQuestions.size() == plQuestions.size();
+        } else {
+            String language = test.getLanguages().get(0);
+            if (language.equals("pl")) return enQuestions.size() == 0;
+            else return plQuestions.size() == 0;
+        }
+    }
+
+    private static boolean languagesValidation(Test test){
+        int languagesQuantity = test.getLanguages().size();
+        boolean languageQuantityFlag = languagesQuantity == 1 || languagesQuantity == 2;
+        boolean correctLanguageFlag = true;
+        for(String language : test.getLanguages()){
+            if(correctLanguageFlag)
+                 correctLanguageFlag = language.equals("pl") || language.equals("en");
+        }
+        return correctLanguageFlag && languageQuantityFlag;
     }
 }
