@@ -69,25 +69,20 @@ public class Test extends TestWrapper implements Serializable {
 		this.questions = questions;
 	}
 
-
-	//@DynamoDBTypeConverted(converter = RecruiterTypeConverter.class)
 	@DynamoDBAttribute(attributeName = "recruiter")
 	public String getRecruiter(){
 		return this.recruiter;
 	}
 
-	//@DynamoDBAttribute(attributeName = "recruiter")
 	public void setRecruiter(String recruiter){
 		this.recruiter = recruiter;
 	}
 
-	//@DynamoDBTypeConverted(converter = CandidatesTypeConverter.class)
 	@DynamoDBAttribute(attributeName = "candidates")
 	public List<String> getCandidates(){
 		return this.candidates;
 	}
 
-	//@DynamoDBAttribute(attributeName = "candidates")
 	public void setCandidates(List<String> candidates){
 		this.candidates = candidates;
 	}
