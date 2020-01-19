@@ -75,7 +75,11 @@ export default function CandidateTesting(props) {
         },
         root:{
         margin: "10px"
-    }
+    },button:{
+            margin: "0 auto",
+            display: "block",
+            width: "20%"
+        }
     }));
     const classes = useStyles();
     const handleOpenDialog = (test, language) => {
@@ -233,7 +237,9 @@ export default function CandidateTesting(props) {
                             )
                         }) : "null"}
                         <Divider />
+                        <br/>
                         <Button
+                            className={classes.button}
                             variant="contained"
                             type="submit"
                         >Submit</Button>
