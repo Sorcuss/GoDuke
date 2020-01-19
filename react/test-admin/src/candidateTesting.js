@@ -65,6 +65,7 @@ export default function CandidateTesting(props) {
     const [testValue, setTest] = React.useState([]);
     const [languageValue, setLanguage] = React.useState([]);
     const [answer, setAnswer] = React.useState([]);
+    const [save, setSave] = React.useState("Submit");
     const useStyles = makeStyles(theme => ({
         appBar: {
             position: 'relative',
@@ -87,6 +88,7 @@ export default function CandidateTesting(props) {
         setTest(test);
         setAnswer(new Array(testValue.length));
         setLanguage(language)
+        setSave("Submit");
     };
 
     const handleCloseDialog = () => {
@@ -100,6 +102,7 @@ export default function CandidateTesting(props) {
 
      const handleSubmit = async (event) => {
         event.preventDefault();
+         setSave("Loading...");
         const request = {
             "answers": answer,
             "test" : {
@@ -242,7 +245,7 @@ export default function CandidateTesting(props) {
                             className={classes.button}
                             variant="contained"
                             type="submit"
-                        >Submit</Button>
+                        >{save}</Button>
                     </form>
                 </List>
             </Dialog>

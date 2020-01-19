@@ -24,6 +24,7 @@ import { CSVLink } from "react-csv";
 import TextField from '@material-ui/core/TextField';
 import CSVReader from 'react-csv-reader'
 import authProvider from "./authProvider";
+import CircularProgress from '@material-ui/core/CircularProgress';
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -62,6 +63,8 @@ export default function RecruiterTesting(props) {
     const [questions, setQuestions] = React.useState([]);
     const [rates, setRate] = React.useState([]);
     const [answer, setAnswer] = React.useState([]);
+    const [csv, setCsv] = React.useState(false);
+    const [save, setSave] = React.useState("Submit");
     const useStyles = makeStyles(theme => ({
         appBar: {
             position: 'relative',
@@ -72,6 +75,10 @@ export default function RecruiterTesting(props) {
         },
         root:{
             margin: "10px"
+        },button:{
+            margin: "0 auto",
+            display: "block",
+            width: "20%"
         }
     }));
     const classes = useStyles();
@@ -79,6 +86,7 @@ export default function RecruiterTesting(props) {
 
     const handleOpenDialog = async  (answers) => {
         setOpen(true);
+        setSave("Submit");
          const response = await axios.get("https://xt9q5i3pj9.execute-api.us-east-1.amazonaws.com/goduke-api-1/tests/" + answers.test.id, {
              headers: {
                  'Authorization': await authProvider.getHeader()
@@ -106,6 +114,7 @@ export default function RecruiterTesting(props) {
     };
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setSave("Loading...");
         const request = {
             id: candidateAnswer.id,
             test: candidateAnswer.test,
@@ -126,6 +135,7 @@ export default function RecruiterTesting(props) {
         document.location.href="/";
     }
     const handleCsvUploadExampleData = async (data) => {
+        setCsv(true);
         const questions = []
         const verifiedQuestions = []
         if(data){
@@ -212,6 +222,7 @@ export default function RecruiterTesting(props) {
                 }
             }
         )
+        setCsv(false);
         if(response.status === 200){
             alert("Success!");
         }else{
@@ -292,7 +303,7 @@ export default function RecruiterTesting(props) {
                         <Table>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell></TableCell>
+                                    <TableCell>{csv && <CircularProgress />}</TableCell>
                                     <TableCell>Import CSV</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -383,10 +394,11 @@ export default function RecruiterTesting(props) {
                         </TableBody>
                     </Table>
                     <Button
+                        className={classes.button}
                         onClick={handleSubmit}
                         variant="contained"
                         type="submit"
-                    >Submit</Button>
+                    >{save}</Button>
                 </div>
             </Dialog>
         </div>

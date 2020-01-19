@@ -98,7 +98,7 @@ export const TestCreate = (props) => {
                     </ArrayInput>
                 </FormTab>
                 <FormTab label="Candidates">
-                    <ReferenceArrayInput validate={required()} label="Select candidates" source="candidates" reference="candidates">
+                    <ReferenceArrayInput label="Select candidates" source="candidates" reference="candidates">
                         <SelectArrayInput id="mail" optionText="mail" />
                     </ReferenceArrayInput>
                 </FormTab>
@@ -143,7 +143,7 @@ export const TestUpdate = (props) => {
                     </ArrayInput>
                 </FormTab>
                 <FormTab label="Candidates">
-                    <ReferenceArrayInput validate={required()} label="Select candidates" source="candidates" reference="candidates">
+                    <ReferenceArrayInput  label="Select candidates" source="candidates" reference="candidates">
                         <SelectArrayInput id="mail" optionText="mail" />
                     </ReferenceArrayInput>
                 </FormTab>
