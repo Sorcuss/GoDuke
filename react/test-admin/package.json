@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.39",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -11,9 +12,12 @@
     "ra-data-json-server": "^3.0.3",
     "react": "^16.12.0",
     "react-admin": "^3.0.3",
+    "react-csv-reader": "^2.0.2",
     "react-dom": "^16.12.0",
+    "react-router-dom": "latest",
     "react-scripts": "3.3.0",
-    "react-router-dom": "latest"
+    "ra-core": "latest",
+    "@material-ui/core": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-csv": "^1.1.2"
   }
 }

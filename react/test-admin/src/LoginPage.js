@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = ({
     main: {
-        background: 'linear-gradient(45deg, #3f51b5 30%, #673ab7 90%)',
+        background: 'linear-gradient(45deg, #5c6bc0 20%, #1a237e 90%)',
         border: 0,
         borderRadius: 3,
         boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
