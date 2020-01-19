@@ -1,4 +1,5 @@
 # GoDuke
+<img src="https://goduke-react-app.s3.amazonaws.com/logo192.png" alt="Logo" height="100" width="100">
 
 ## Team
 
