@@ -73,6 +73,9 @@ export default function CandidateTesting(props) {
             marginLeft: theme.spacing(2),
             flex: 1,
         },
+        root:{
+        margin: "10px"
+    }
     }));
     const classes = useStyles();
     const handleOpenDialog = (test, language) => {

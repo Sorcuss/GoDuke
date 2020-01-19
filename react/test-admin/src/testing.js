@@ -2,6 +2,29 @@ import React from "react";
 import authProvider from "./authProvider";
 import CandidateTesting from "./candidateTesting";
 import RecruiterTesting from "./recruiterTesting";
+import { makeStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import { Alert, AlertTitle } from '@material-ui/lab';
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        width: '100%',
+        '& > * + *': {
+            marginTop: theme.spacing(2),
+        },
+    },
+}));
+
+function LinearIndeterminate() {
+    const classes = useStyles();
+
+    return (
+        <div className={classes.root}>
+            <LinearProgress />
+            <LinearProgress color="secondary" />
+        </div>
+    );
+}
 
 class TestingPane extends React.Component {
 
@@ -59,7 +82,15 @@ class TestingPane extends React.Component {
         }
         return (
             <>
-                {this.state.auth ? data : <div><h3>Loading...</h3><span>Thanks for being patient</span></div>}
+                {this.state.auth ? data : <div>
+                    <br />
+                    <Alert severity="success">
+                    <AlertTitle>Loading</AlertTitle>
+                        Thanks for being patient
+                </Alert>
+                    <LinearIndeterminate/>
+                </div>
+                    }
            </>
         )
     }
